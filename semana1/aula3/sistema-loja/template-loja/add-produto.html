@@ -5,21 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adicionar Produto</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div>
-        <p>Galactica Store</p>
+
+    <header>
+<strong>
+    <div class="cabecalho">
+        <h1><em>Galactica Store</em></h1>
+        <p><strong> De nerd para nerd!</strong></p>
     </div>
     
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
+    <div class="atalhos">
+        <a href="index.html"class="atlh2">Página Inicial</a>
+        <a href="ctrl-estoque.html"class="atlh2">Controle de Estoque</a>
+        <a href="add-produto.html"class="atlh2">Adicionar Produto</a>
+        <a href="funcionarios.html"class="atlh2">Funcionários</a>
+        <a href="vendas.html" class="atlh">Vendas</a>
+        <a href="hist-vendas.html" class="atlh">Histórico de Vendas</a>
     </div>
 
-    
-    <h2>Adicionar Produto</h2>
+</strong>
+    </header>
+
+    <div class="main-container"> 
+
+        <h2>Adicionar Produto</h2>
     <form action="">
         <div>
             <label for="link-foto">Link para foto: </label>
@@ -46,10 +57,16 @@
 
         <div class="form-add">
             <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
-            <button type="submit">Adicionar</button>
+            <button type="submit" id="submit">Adicionar</button>
         </div>
 
-    </form>
+    </div>
 
+    </form>
+<footer>
+    <div class="rodape">
+        <p> <strong> Tudo feito à mão!</strong></p>
+    </div>
+</footer>
 </body>
 </html>

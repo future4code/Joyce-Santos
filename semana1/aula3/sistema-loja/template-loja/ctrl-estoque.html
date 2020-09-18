@@ -5,22 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Controle de Estoque</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div>
-        <p>Galactica Store</p>
+
+    <header>
+        <strong>
+
+    <div class="cabecalho">
+        <h1><em>Galactica Store</em></h1>
+        <p><strong> De nerd para nerd!</strong></p>
     </div>
     
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
+    <div class="atalhos">
+        <a href="index.html"class="atlh2">Página Inicial</a>
+        <a href="ctrl-estoque.html"class="atlh2">Controle de Estoque</a>
+        <a href="add-produto.html"class="atlh2">Adicionar Produto</a>
+        <a href="funcionarios.html"class="atlh2">Funcionários</a>
+        <a href="vendas.html" class="atlh">Vendas</a>
+        <a href="hist-vendas.html" class="atlh">Histórico de Vendas</a>
     </div>
+         </strong>
+    </header>
+
+    <div class="main-container"> 
 
     <h2>Controle de Estoque</h2>
 
-    <table>
+    <table class="venda">
         <tr>
             <th>Foto</th>
             <th>Descrição</th>
@@ -29,35 +41,35 @@
         </tr>
 
         <tr>
-            <td><img src="./img/brinco-super-mario-bros-super-mario.jpg" alt="Brinco Mário e Luigi Pixel"/></td>
+            <td><img src="./img/brinco-super-mario-bros-super-mario.jpg" alt="Brinco Mário e Luigi Pixel" class="img-prod" id="prod1"/></td>
             <td> Brinco Irmãos Mário </td>
             <td> R$ 25,00 </td>
             <td> 5un </td>
         </tr>
 
         <tr>
-            <td><img src="./img/personagem-jason-voorhees-sexta-feira-13.jpg" alt="Action Figure Jason Vorhees"/></td>
+            <td><img src="./img/personagem-jason-voorhees-sexta-feira-13.jpg" alt="Action Figure Jason Vorhees"class="img-prod" id="prod2"/></td>
             <td> Action Figure Jason Vorhees </td>
             <td> R$ 75,00 </td>
             <td> 3un </td>
         </tr>
 
         <tr>
-            <td><img src="./img/kit-ima-de-geladeira-os-cavaleiros-do-zodiado-5-pecas-ima.jpg" alt="Imã Os Cavaleiros do Zodíaco em Pixel"/></td>
+            <td><img src="./img/kit-ima-de-geladeira-os-cavaleiros-do-zodiado-5-pecas-ima.jpg" alt="Imã Os Cavaleiros do Zodíaco em Pixel"class="img-prod" id="prod3"/></td>
             <td> Kit Imã Os Cavaleiros do Zodíaco </td>
             <td> R$ 100,00 </td>
             <td> 1un </td>
         </tr>
 
         <tr>
-            <td><img src="./img/par-de-chaveiros-promocional-zelda-pokemon.jpg" alt="Par de Chaveiros Link e Zelda"/></td>
+            <td><img src="./img/par-de-chaveiros-promocional-zelda-pokemon.jpg" alt="Par de Chaveiros Link e Zelda"class="img-prod" id="prod4"/></td>
             <td> Kit Chaveiros Link e Zelda </td>
             <td> R$ 30,00 </td>
             <td> 10un </td>
         </tr>
 
         <tr>    
-            <td><img src="./img/mini-quadro-3d-mega-man-3d.jpg" alt="Mini Quadro Mega Man Pixel"></td>
+            <td><img src="./img/mini-quadro-3d-mega-man-3d.jpg" alt="Mini Quadro Mega Man Pixel"class="img-prod"></td>
             <td>Quadro 3D Mega Man</td>
             <td>R$ 70,00</td>
             <td>1un</td>
@@ -67,5 +79,13 @@
 
     </table>
 
+    </div>
+
+<footer>
+
+    <div class="rodape">
+        <p> <strong> Tudo feito à mão!</strong></p>
+    </div>
+</footer>
 </body>
 </html>
