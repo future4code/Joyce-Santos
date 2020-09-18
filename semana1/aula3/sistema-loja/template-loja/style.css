@@ -6,7 +6,9 @@ header{
     background-color: darkturquoise;
     text-align: center;
     margin: 0%;
-    padding: 0%;
+    padding-top: 20px;
+
+
 }
 
 .main-container{
@@ -14,14 +16,13 @@ header{
     width: 100%;
     padding-top: 20px;
     padding-bottom: 100%;
-    padding; 100%;
-    
-}
+    }
 
 .atalhos{
     background-color: gray;
-    text-align: left;
+    text-align: center;
     padding: 20px;
+    
 }
 
 .descricao{
@@ -35,8 +36,10 @@ header{
 .img-redes{
     width: auto;
     height: auto;
-    max-width: 250px;
-    max-height: 150px;
+    max-width: 50px;
+    max-height: 50px;
+    display: inline;
+
 }
 
 footer{
@@ -57,8 +60,35 @@ footer{
     max-height: 150px;
 }
 
-
-
 .cabecalho-2{
     padding: 20px;
+    
 }
+
+.atlh{
+    margin-right: 100px;
+}
+
+.atlh2{
+    margin: 45px;
+    
+}
+
+.redes{
+    text-align: center;
+}
+
+.produtos{
+    display: flex;
+    flex-direction: column;
+}
+
+.venda{
+    background-color: lightskyblue;
+    padding: 15px;
+}
+
+#submit:active{
+    background-color:lightslategrey;
+}
+
