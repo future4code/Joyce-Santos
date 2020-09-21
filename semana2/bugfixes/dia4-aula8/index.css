@@ -72,7 +72,8 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
-    padding-top: 20px;
+   
+    
 }
 
 #container-de-descricao>ol {
@@ -81,13 +82,15 @@ div img {
 
 #container-para-comprar {
     background-color: #e7eb90;
-    display: flex;
-    justify-content: center;
+    display: block;
+    padding-top: 50px;
 }
 
 #container-para-comprar>p {
     color: #c44f00;
     font-size: 60px;
+    display: block;
+    padding: 50px;
 }
 
 
