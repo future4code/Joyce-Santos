@@ -7,7 +7,7 @@
 * {
     margin: 0;
     padding: 0;
-}
+  }
 
 h2 {
     background-color: #fe7e02;
@@ -76,6 +76,7 @@ div img {
 }
 
 
+
 #container-de-descricao>ol {
     padding: 15px 0px;
     list-style-type: decimal;
@@ -109,6 +110,7 @@ div:last-child {
 
 table {
     width: 60%;
+    text-align: center;
 }
 
 td button {
