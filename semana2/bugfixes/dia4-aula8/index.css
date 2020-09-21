@@ -24,6 +24,7 @@ input {
     border-left: none;
     border-right: none;
     border-bottom: 2px solid;
+    outline: none;
 }
 
 button:focus {
@@ -52,6 +53,8 @@ div img {
     border-radius: 5px;
     font-size: 20px;
     color: white;
+    outline: none;
+    border: none;
 }
 
 .botao-amarelo:hover  {
@@ -67,6 +70,14 @@ div img {
 .icone {
     height: 15px;
     width: 15px;
+}
+
+.icone:hover{
+    opacity: 0.5;
+}
+
+.icone:active{
+    opacity: 1;
 }
 
 
@@ -132,6 +143,7 @@ td button {
     height: 30px;
     border-radius: 5px;
     color: black;
+    outline: none;
     
     
 }
@@ -159,6 +171,7 @@ td button:hover {
     margin: auto;
     margin-top: 100px;
     padding-left: 30px;
+    outline: none;
 
     
 }
