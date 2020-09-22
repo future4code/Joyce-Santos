@@ -9,6 +9,11 @@ body {
 
 .green-background {
     background-color: green;
+    display: flex;
+    justify-content: flex-start;
+    width: 20%;
+    height: 20%;
+
 }
 
 .yellow-background {
