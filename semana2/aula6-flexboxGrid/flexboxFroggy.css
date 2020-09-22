@@ -1,0 +1,145 @@
+#pond1 {
+    display: flex;
+    justify-content: flex-end;
+}
+#pond2 {
+    display: flex;
+  justify-content: center;
+  }
+#pond3 {
+    display: flex;
+  justify-content: space-around;
+  }
+#pond4 {
+    display: flex;
+  justify-content: space-between;
+  }
+#pond5 {
+    display: flex;
+  align-items: flex-end;
+  }
+
+#pond6 {
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#pond7 {
+  display: flex;
+justify-content: space-around;
+align-items: flex-end;
+}
+
+#pond8 {
+  display: flex;
+flex-direction: row-reverse; 
+}
+
+#pond9 {
+  display: flex;
+flex-direction: column;
+}
+
+#pond10 {
+  display: flex;
+flex-direction: row-reverse;
+justify-content: flex-end; 
+}
+
+#pond11 {
+  display: flex;
+flex-direction: column;
+justify-content: flex-end; 
+}
+
+#pond12 {
+  display: flex;
+flex-direction: column-reverse;
+justify-content: space-between;
+}
+
+#pond13 {
+  display: flex;
+flex-direction: row-reverse;
+justify-content: center;
+align-items: flex-end;
+}
+
+#pond14 {
+  display: flex;
+}
+
+.yellow {
+order: 1;
+}
+
+#pond15 {
+  display: flex;
+}
+
+.red {
+order: -1;
+}
+
+#pond16 {
+  display: flex;
+  align-items: flex-start;
+}
+
+.yellow {
+align-self: flex-end;
+}
+
+#pond17 {
+  display: flex;
+  align-items: flex-start;
+}
+
+.yellow {
+order: 1;
+align-self: flex-end;
+}
+
+#pond18 {
+  display: flex;
+flex-wrap: wrap
+}
+
+#pond19 {
+  display: flex;
+flex-direction: column;
+flex-wrap: wrap; 
+}
+
+#pond20 {
+  display: flex;
+flex-flow: column wrap;
+}
+
+#pond21 {
+  display: flex;
+  flex-wrap: wrap;
+align-content: flex-start; 
+}
+
+#pond22 {
+  display: flex;
+  flex-wrap: wrap;
+align-content: flex-end
+}
+
+#pond23 {
+  display: flex;
+  flex-wrap: wrap;
+align-content: center; 
+flex-direction: column-reverse; 
+}
+
+#pond24 {
+  display: flex;
+flex-direction: column-reverse; 
+flex-wrap: wrap-reverse;
+justify-content: center; 
+align-content: space-between;  
+}
