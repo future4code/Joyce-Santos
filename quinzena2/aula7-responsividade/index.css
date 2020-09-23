@@ -32,7 +32,14 @@ div {
   
 }
 
-.blue-block {
+.blue-block1 {
+  display: grid;
+  background-color: blue;
+  justify-items: center;
+  align-items: center;
+  
+}
+.blue-block2 {
   display: grid;
   background-color: blue;
   justify-items: center;
@@ -40,7 +47,15 @@ div {
   
 }
 
-.yellow-block {
+.yellow-block1 {
+  display: grid;
+  background-color: yellow;
+  justify-items: center;
+  align-items: center;
+  
+}
+
+.yellow-block2 {
   display: grid;
   background-color: yellow;
   justify-items: center;
@@ -107,8 +122,8 @@ div {
 @media screen and (max-device-width: 800px) and (min-device-width: 421px){
   #main-container{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
         row-gap: 1em;
         column-gap: 1em;
     }
@@ -125,7 +140,12 @@ div {
         grid-column: 1 / 3;
     }
 
-    .blue-block{
+    .blue-block1{
+        display: grid;
+        grid-column-start: 1;
+    }
+
+    .blue-block2{
         display: grid;
         grid-column-start: 1;
     }
@@ -149,5 +169,60 @@ div {
        grid-column: 1 / 3;
 }
 
-        
+@media screen and (max-device-width: 420px) and (min-device-width: 320px){
+        #main-container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(12, 1fr);
+        row-gap: 1em;
+        column-gap: 1em;
+    }
 
+    .blue-block1{
+        display: grid;
+       grid-row-start: 1;
+    }
+    .yellow-block1 {
+      display: grid;
+      grid-row-start: 2;
+    }
+
+    .green-block1{
+        display: grid;
+        grid-row-start: 3;
+        
+    }
+
+    .blue-block2{
+        display: grid;
+       grid-row-start: 4;
+    }
+
+    .yellow-block2 {
+     display: grid;
+     grid-row-start: 5;
+}
+
+.green-block2{
+        display: grid;
+        grid-row-start: 6;
+        
+    }
+
+    .white-block1{
+      display: grid;
+      grid-row-start: 9;
+  }
+
+    .white-block2{
+        display: grid;
+        grid-row-start: 10;
+}
+
+   .white-block3{
+       display: grid;
+       grid-row-start: 11;
+
+}
+}
+    
