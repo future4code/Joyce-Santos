@@ -1,36 +1,88 @@
 body {
-    width: 100vw;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-    font-size: 10px;
-    color: white;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  color: white;
+}
+
+#top-container {
+  display: grid;
+  grid-template-columns: 20% 100%;
 }
 
 .green-background {
-    background-color: green;
+  display: grid;
+  background-color: green;
+  justify-content: flex-start;
+  width: auto;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
 }
 
 .yellow-background {
-    background-color: yellow;
+  display: grid;
+  background-color: yellow;
+  width: 80%;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
 }
 
 .pink-background {
-    background-color: fuchsia;
+  display: grid;
+  background-color: fuchsia;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
 }
 
 .blue-background {
-    background-color: blue;
+  display: grid;
+  background-color: blue;
+  height: 100px;
+  width: 730px;
+  justify-content: center;
+  align-items: center;
+}
+
+#middle-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .red-background {
-    background-color: red;
+  display: grid;
+  background-color: red;
+  height: 50px;
+  width: 350px;
+  justify-content: center;
+  align-items: center;
 }
 
 .lightgreen-background {
-    background-color: lightgreen;
+  display: grid;
+  background-color: lightgreen;
+  height: 50px;
+  width: 350px;
+  justify-content: center;
+  align-items: center;
 }
 
 .purple-background {
-    background-color: purple;
+  background-color: purple;
+  height: 50px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+#blank {
+  background: white;
+  width: 350px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
