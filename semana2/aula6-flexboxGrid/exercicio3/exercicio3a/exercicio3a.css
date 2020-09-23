@@ -1,0 +1,93 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    color: white;
+}
+
+#top-container{
+    display: flex;
+    justify-content: space-between;
+    }
+
+.green-background {
+    display: flex;
+    background-color: green;
+    justify-content: flex-start;
+    width: 20%;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.yellow-background {
+   display: flex;
+   background-color: yellow;
+   width: 80%;
+   height: 30px;
+   align-items: center;
+   justify-content: center;
+   
+}
+
+.pink-background {
+    display: flex;
+    background-color: fuchsia;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
+.blue-background {
+    display: flex;
+    background-color: blue;
+    height: 100px;
+    width: 730px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#middle-container {
+  display: flex;
+}
+
+.red-background {
+    display: flex;
+    background-color: red;
+    height: 50px;
+    width: 350px;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+.lightgreen-background {
+    display: flex;
+    background-color: lightgreen;
+    height: 50px;
+    width: 350px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.purple-background{ 
+  background-color: purple;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#blank {
+  background: white;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
