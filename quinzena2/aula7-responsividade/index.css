@@ -48,7 +48,14 @@ div {
   
 }
 
-.green-block {
+.green-block1 {
+  display: grid;
+  background-color: green;
+  justify-items: center;
+  align-items: center;
+  
+}
+.green-block2 {
   display: grid;
   background-color: green;
   justify-items: center;
@@ -74,10 +81,73 @@ div {
   
 }
 
-.white-block {
+.white-block1 {
   display: grid;
   background-color: white;
   justify-items: center;
   align-items: center;
   grid-row-start: 5;
 }
+.white-block2 {
+  display: grid;
+  background-color: white;
+  justify-items: center;
+  align-items: center;
+  grid-row-start: 5;
+}
+
+.white-block3 {
+  display: grid;
+  background-color: white;
+  justify-items: center;
+  align-items: center;
+  grid-row-start: 5;
+}
+
+@media screen and (max-device-width: 800px) and (min-device-width: 421px){
+  #main-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        row-gap: 1em;
+        column-gap: 1em;
+    }
+       
+     
+    .green-block1{
+        display: grid;
+        grid-row-start: 3;
+        grid-column: 1 / 3;
+    }
+    .green-block2{
+        display: grid;
+        grid-row-start: 5;
+        grid-column: 1 / 3;
+    }
+
+    .blue-block{
+        display: grid;
+        grid-column-start: 1;
+    }
+
+    .white-block1{
+      height: 4em;
+      display: grid;
+      grid-row-start: 8;
+  }
+
+    .white-block2{
+        height: 4em;
+        display: grid;
+        grid-row-start: 8;
+}
+
+   .white-block3{
+       height: 4em;
+       display: grid;
+       grid-row-start: 9;
+       grid-column: 1 / 3;
+}
+
+        
+
