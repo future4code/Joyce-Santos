@@ -16,7 +16,7 @@
   *
   **/
 nav{
-    background-color:#363B40;
+    background-color:#59574F;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,6 +45,8 @@ main{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     background-color: #E9F0F2;
+    height: 80vh;
+   
 }
 
 .text{
@@ -69,11 +71,13 @@ h2{
     height: 20vh;
     row-gap: 5em;
     column-gap: 5em;
+    
+    
 }
 
 .produtos1{
     display: grid;
-    border: solid 3px #59574F;
+    border: solid 3px #363B40;
     width: 10vw;
     height: 20vh;
    
@@ -81,7 +85,7 @@ h2{
 
 .produtos2{
     display: grid;
-    border: solid 3px #59574F;
+    border: solid 3px #363B40;
     width: 10vw;
     height: 20vh;
     
@@ -89,14 +93,14 @@ h2{
 
 .produtos3{
     display: grid;
-    border: solid 3px #59574F;
+    border: solid 3px #363B40;
     width: 10vw;
     height: 20vh;
 }
 
 .produtos4{
     display: grid;
-    border: solid 3px #59574F;
+    border: solid 3px #363B40;
     width: 10vw;
     height: 20vh;
 }
@@ -118,7 +122,7 @@ h2{
 
 footer{
     display: flex;
-    background-color: #363B40;
+    background-color: #59574F;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -134,20 +138,20 @@ footer{
   *
   **/
 
-  @media screen and (min-device-width: 375px) and (max-device-width: 420px){
+  @media screen and  (max-device-width: 420px){
 
     nav{
-    background-color:#363B40;
+    background-color:#59574F
     display: flex;
     justify-content: center;
     align-items: center;
     height: 3em;
-    width: 100%;
+    
     
 }
 
 .logo{
-    width: 35%;
+    width: 3.5em;
 }
 
 .menu{
@@ -160,6 +164,7 @@ footer{
 li{
     
     font-weight: bolder;
+    
 }
 
     main{
@@ -168,6 +173,7 @@ li{
     background-color: #E9F0F2;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 200vh;
 }
 
 .text{
@@ -180,36 +186,37 @@ li{
     grid-template-rows: 1fr 1fr;
         row-gap: 5em;
     column-gap: 5em;
-   margin-left: 6em;
+   margin-left: 7em;
+   
 }
 
 .produtos1{
     display: grid;
-    border: solid 3px #59574F;
-    width: 10vw;
+    border: solid 3px#363B40;
+    width: 35vw;
     height: 20vh;
    
 }
 
 .produtos2{
     display: grid;
-    border: solid 3px #59574F;
-    width: 10vw;
+    border: solid 3px #363B40;
+    width: 35vw;
     height: 20vh;
     
 }
 
 .produtos3{
     display: grid;
-    border: solid 3px #59574F;
-    width: 10vw;
+    border: solid 3px #363B40;
+    width: 35vw;
     height: 20vh;
 }
 
 .produtos4{
     display: grid;
-    border: solid 3px #59574F;
-    width: 10vw;
+    border: solid 3px #363B40;
+    width: 35vw;
     height: 20vh;
 }
 
@@ -220,13 +227,18 @@ li{
     height: 20vh;
 }
 
+.text-footer{
+    font-size: 0.8em;
+    text-align: center;
+}
 
 footer{
     display: flex;
-    background-color: #363B40;
+    background-color: #59574F;
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 3em;
     align-items: center;
+    
 
