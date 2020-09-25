@@ -1,0 +1,44 @@
+/** 
+  *
+  *  ESTILOS GERAIS 
+  *
+  **/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Antic Slab', serif;
+}
+
+/** 
+  *
+  *  ESTILOS HOME 
+  *
+  **/
+nav{
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.menu{
+    display: block;
+}
+
+header{
+    
+}
+
+.logo{
+    width: ;
+}
+
+
+
+  /**
+  *
+  *  ESTILOS RESPONSIVO 
+  *
+  **/
+
