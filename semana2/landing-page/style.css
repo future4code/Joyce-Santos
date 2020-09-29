@@ -1,0 +1,244 @@
+/** 
+  *
+  *  ESTILOS GERAIS 
+  *
+  **/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Antic Slab', serif;
+    
+}
+
+/** 
+  *
+  *  ESTILOS HOME 
+  *
+  **/
+nav{
+    background-color:#59574F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5em;
+
+
+}
+
+.logo{
+    width: 17%;
+}
+
+.menu{
+    display:flex;
+    list-style: none;
+    
+}
+
+li{
+    margin-right: 1em;
+    font-weight: bolder;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    background-color: #E9F0F2;
+    height: 80vh;
+   
+}
+
+.text{
+    margin-top: 2em;
+}
+
+
+.quemsou{
+    display: flex;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+h2{
+    justify-content: center;
+}
+.produto{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 10vw;
+    height: 20vh;
+    row-gap: 5em;
+    column-gap: 5em;
+    
+    
+}
+
+.produtos1{
+    display: grid;
+    border: solid 3px #363B40;
+    width: 10vw;
+    height: 20vh;
+   
+}
+
+.produtos2{
+    display: grid;
+    border: solid 3px #363B40;
+    width: 10vw;
+    height: 20vh;
+    
+}
+
+.produtos3{
+    display: grid;
+    border: solid 3px #363B40;
+    width: 10vw;
+    height: 20vh;
+}
+
+.produtos4{
+    display: grid;
+    border: solid 3px #363B40;
+    width: 10vw;
+    height: 20vh;
+}
+
+
+
+.img{
+    width: 20hw;
+    height: 20vh;
+}
+
+.redes{
+    width: 5hw;
+    height: 5vh;
+    margin-right: 1em;
+    margin-left: 1em;
+    
+}
+
+footer{
+    display: flex;
+    background-color: #59574F;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 3em;
+    align-items: center;
+
+}
+
+
+  /**
+  *
+  *  ESTILOS RESPONSIVO 
+  *
+  **/
+
+  @media screen and  (max-device-width: 420px){
+
+    nav{
+    background-color:#59574F
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    
+    
+}
+
+.logo{
+    width: 3.5em;
+}
+
+.menu{
+    display:flex;
+    list-style: none;
+    
+}
+
+
+li{
+    
+    font-weight: bolder;
+    
+}
+
+    main{
+    display: grid;
+    justify-content: center;
+    background-color: #E9F0F2;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 200vh;
+}
+
+.text{
+    margin-top: 2em;
+    text-align: center;
+}
+.produto{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+        row-gap: 5em;
+    column-gap: 5em;
+   margin-left: 7em;
+   
+}
+
+.produtos1{
+    display: grid;
+    border: solid 3px#363B40;
+    width: 35vw;
+    height: 20vh;
+   
+}
+
+.produtos2{
+    display: grid;
+    border: solid 3px #363B40;
+    width: 35vw;
+    height: 20vh;
+    
+}
+
+.produtos3{
+    display: grid;
+    border: solid 3px #363B40;
+    width: 35vw;
+    height: 20vh;
+}
+
+.produtos4{
+    display: grid;
+    border: solid 3px #363B40;
+    width: 35vw;
+    height: 20vh;
+}
+
+
+
+.img{
+    width: 20hw;
+    height: 20vh;
+}
+
+.text-footer{
+    font-size: 0.8em;
+    text-align: center;
+}
+
+footer{
+    display: flex;
+    background-color: #59574F;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 3em;
+    align-items: center;
+    
+
