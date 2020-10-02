@@ -1,6 +1,5 @@
 
 // INICIO DE JOGO
-const bemVindo = 
 console.log("Bem vindo ao jogo de Blackjack!")
 // USUARIO
    if (confirm("Quer iniciar uma nova rodada?")) {
