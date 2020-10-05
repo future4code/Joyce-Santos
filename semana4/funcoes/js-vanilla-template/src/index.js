@@ -81,7 +81,7 @@
 
 // let mensagem = (frase) => {
 //     for (let i = 0; i < 10; i++){
-//         console.log(frase, i)
+//         console.log(frase)
 //     }
 
 // }
@@ -98,12 +98,68 @@
 // console.log(tamanhoDoArray(array))
 
 // --------------------------------------------------Exercicio 6b--------------------------------------------------------
+// let paridade = (numero) => {
+//     if (numero %2 === 0){
+//         return true
+//     }else{
+//         return false
+//     }
+// }
+
+// let resultado = paridade(78)
+// let resultado2 = paridade(23)
+
+// console.log(resultado)
+// console.log(resultado2)
+
+
+// --------------------------------------------------Exercicio 6c--------------------------------------------------------
+
+// const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
+// let quantidadeDePares = (array) => {
+//     let paridadeDoArray = []
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i] % 2 === 0) {
+//             paridadeDoArray.push(array[i])
+
+//         }
+//     }
+//     return paridadeDoArray.length
+// }
+//  let resultado = quantidadeDePares(array)
+//  console.log(resultado)
+
+
+// --------------------------------------------------Exercicio 6d--------------------------------------------------------
 
 const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
-let paridadeDoArray = (array) => {
-    for(let i = 0; i < array.length; i++){
-        
-
+let paridade = (numero) => {
+    if (numero %2 === 0){
+        return true
+    }else{
+        return false
     }
-
 }
+
+let verificacaoDeParidade = (array) => {
+    for(const i of array){
+        paridade(i)
+        console.log(paridade(i))
+    }
+}
+
+function quantidadeDePares (array) {
+    let pares = []
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] %2 === 0) {
+            pares.push(array[i])
+        }
+    }
+    return pares.length
+}
+
+let resultado = quantidadeDePares(array)
+let resultado2 = verificacaoDeParidade(array)
+console.log(resultado)
+console.log(resultado2)
+
