@@ -163,12 +163,20 @@
 
 // -----------------------------------Exercícios de Funções 2
 
-let olaMundo = () =>{
-    window.alert("Hello Labenu!!!")
+// let olaMundo = () =>{
+//     window.alert("Hello Labenu!!!")
     
-}
+// }
 
-olaMundo()
+// olaMundo()
+
+// -----------------------------------Exercícios de Objetos 1
+// Os array servem para guardar e acessar mais de uma infomação ao mesmo tempo. E os objetos servem para guardar elementos, até mesmo arrays, de forma mais organizada.
+
+// -----------------------------------Exercícios de Objetos 2
+
+
+
 
 
 
