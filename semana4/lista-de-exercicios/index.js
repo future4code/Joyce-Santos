@@ -74,14 +74,14 @@
 
 // ---------------------------------------Exercícios de Lógica de Programação 3
 
-let i = 0
-const quantidadeDeNumerosPares = (numeros) =>{
-    while(i < numeros ){
-    console.log(i *2)
-    i++
-    }
-}
-quantidadeDeNumerosPares(5)
+// let i = 0
+// const quantidadeDeNumerosPares = (numeros) =>{
+//     while(i < numeros ){
+//     console.log(i *2)
+//     i++
+//     }
+// }
+// quantidadeDeNumerosPares(5)
 
 // ---------------------------------------Exercícios de Lógica de Programação 4
 
@@ -129,6 +129,41 @@ quantidadeDeNumerosPares(5)
 
 
 
-// -------------------------------------Exercícios de Funções 1
+// -----------------------------------Exercícios de Funções 1
+
+
+// let arrayDeNumeros = () =>{
+//     let array = [12, 2, 25, 76, 85, 96]
+//     let numero1 = Infinity;
+//     let numero2 = 0;
+    
+
+//     for(let numero of array){
+//         if (numero < numero1){
+//             numero1 = numero;
+//         }
+
+//             array.splice(1, 1)
+
+            
+//         if(numero > numero2){
+//             numero2 = numero;
+//         }
+
+            
+//             array.splice(5, 1)
+//     }
+//     console.log(numero1)
+//     console.log(numero2)
+   
+
+//     }
+
+// arrayDeNumeros()
+
+// -----------------------------------Exercícios de Funções 2
+
+
+
 
 
