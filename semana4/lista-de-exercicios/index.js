@@ -51,3 +51,23 @@
 // }
 // somaDosNumeros()
 
+// ---------------------------------------Exercícios de Lógica de Programação 2
+// const booleano1 = true
+// const booleano2 = false
+// const booleano3 = true
+// const booleano4 = false
+
+// a) booleano1 && booleano2 && !booleano4
+//  False
+
+// // b) (booleano1 && booleano2) || !booleano3 
+// False
+
+// c)  (booleano2 || booleano3) && (booleano4 || booleano1)
+// True
+
+// d) !(booleano2 && booleano3) || !(booleano1 && booleano3)
+// True
+
+// e) !(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)
+// True
