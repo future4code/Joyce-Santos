@@ -74,6 +74,15 @@
 
 // ---------------------------------------Exercícios de Lógica de Programação 3
 
+// let i = 0
+// const quantidadeDeNumerosPares = () =>{
+//     while(i <= quantidadeDeNumerosPares){
+//     console.log(i % 2 === 0)
+//     i++
+//     }
+// }
+// quantidadeDeNumerosPares()
+
 // ---------------------------------------Exercícios de Lógica de Programação 4
 
 // const tamanhoDoTriangulo = (a, b, c) =>{
@@ -88,3 +97,39 @@
 //         return
 //     }
 //  tamanhoDoTriangulo(10, 15, 20)
+
+// ---------------------------------------Exercícios de Lógica de Programação 5
+
+const numero1 = Number(prompt("Digite um número qualquer"))
+const numero2 = Number(prompt("Digite aqui, outro número qualquer"))
+
+let numerosSolicitados =() => {
+    if(numero1 > numero2){
+        console.log(`${numero1} é maior`)
+    } else if (numero2 > numero1){
+        console.log(`${numero2} é maior`)
+    } else
+    console.log("Os números são iguais")
+    }
+
+    if(numero1 % numero2 === 0){
+        console.log("É divisível")
+    } else
+    console.log("Não é divisível")
+
+let resultado = numero1 - numero2
+    if(resultado > 0){
+        console.log(`A diferença entre eles é ${resultado}`)
+
+    }else{
+        console.log(`A diferença entre eles é ${-resultado}`)
+    }
+        
+    
+numerosSolicitados()
+
+
+
+// -------------------------------------Exercícios de Funções 1
+
+
