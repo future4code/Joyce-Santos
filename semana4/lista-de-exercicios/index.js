@@ -163,7 +163,12 @@
 
 // -----------------------------------Exercícios de Funções 2
 
+let olaMundo = () =>{
+    window.alert("Hello Labenu!!!")
+    
+}
 
+olaMundo()
 
 
 
