@@ -185,6 +185,22 @@
 // }
 // criaRetangulo()
 
+// -----------------------------------Exercícios de Objetos 3
+
+
+// let filmeFavorito = () =>{
+// const filme = {
+//     nome: "Dirty Dancing",
+//     diretor: "Emile Ardolino",
+//     lancamento: 1987,
+//     elenco: ["Patrick Swayze", "Jennifer Grey"]
+// }
+//     console.log(`"Venha assistir ao ${filme.nome}, de ${filme.lancamento}, dirigido por ${filme.diretor} e estrelado por ${filme.elenco[0]} e ${filme.elenco[1]}`)
+// }
+// filmeFavorito()
+
+
+
 
 
 
