@@ -1,3 +1,7 @@
 // ------------------------------------Exercícios de interpretação de código 1 
 
 // O código faz uma conversão de valores, através de uma função, com um parâmetro chamado valor em dolar, a função irá captar um valor através do prompt na const cotação, que dará um retorno de o cálculo do valor em dólar que está sendo informação e a cotação que será informada pelo usuário. Na const meuDinheiro é chamada a função indicando qual é o valor do seu parâmetro e então realiza o calculo chamado no return. O resultado apresentado no console, será o da conta valorEmDolar (100) * cotacao (5,60) = R$ 560.
+
+// ------------------------------------Exercícios de interpretação de código 2
+
+// O código mostra o resultado dos investimentos informado no laço tipoDeInvestimento. O switch case serve para multiplicar o valor informado pelo usuário pelo valor de cada investimento. No caso de nenhuma informação ser inserida, ou alguma informação for divergente, irá apresentar um alerta, informando que o tipo de investimento está incorreto. Tem um retorno do valor final já calculado. Na const novoMontante, referente as ações, o valor informado no console será de 150 * 1.1, totalizando 165. Na const segundoMontante, referente ao tesouro direto, será exibido o alert, pois Tesouro Direto não é um tipo de investimento válido.
