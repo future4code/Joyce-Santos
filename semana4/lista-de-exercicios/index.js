@@ -71,3 +71,20 @@
 
 // e) !(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)
 // True
+
+// ---------------------------------------Exercícios de Lógica de Programação 3
+
+// ---------------------------------------Exercícios de Lógica de Programação 4
+
+// const tamanhoDoTriangulo = (a, b, c) =>{
+//     if (a === b && b === c){
+//         console.log("Este triângulo é equilátero.")
+//         return
+//     } else if (a === b  && b !== c || a !== b && b === c || c === a && a !== b){
+//         console.log("Este triângulo é isósceles.")
+//         return
+//     } else ( a !== b && b !== c)
+//         console.log("Este triângulo é escaleno.")
+//         return
+//     }
+//  tamanhoDoTriangulo(10, 15, 20)
