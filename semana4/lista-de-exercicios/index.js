@@ -5,3 +5,7 @@
 // ------------------------------------Exercícios de interpretação de código 2
 
 // O código mostra o resultado dos investimentos informado no laço tipoDeInvestimento. O switch case serve para multiplicar o valor informado pelo usuário pelo valor de cada investimento. No caso de nenhuma informação ser inserida, ou alguma informação for divergente, irá apresentar um alerta, informando que o tipo de investimento está incorreto. Tem um retorno do valor final já calculado. Na const novoMontante, referente as ações, o valor informado no console será de 150 * 1.1, totalizando 165. Na const segundoMontante, referente ao tesouro direto, será exibido o alert, pois Tesouro Direto não é um tipo de investimento válido.
+
+// // ------------------------------------Exercícios de interpretação de código 3
+
+// Temos três arrays, um com 14 números já definidos e os outros dois arrays estão vazios. Tem a chamada de um laço do tipo for, e um if para verificar dentro do array numeros quais são os números que possuem o resto de divisão igual a 0 (numeros pares), e inclui-los através do push dentro do array1, e no else, ficarão os números opostos ao if, onde o resto de divisão é diferente de 0,(números ímpares) irão ser incluídos através do push no array2, por fim será impresso no console, a frase junto da soma do tamanho do array "A quantidade total de numeros é 14", após isso,  irá aparecer somente a quantidade de itens no array1 "6" e após a quantidade de numeros do array2 que é 8.
