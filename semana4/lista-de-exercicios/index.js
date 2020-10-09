@@ -331,6 +331,31 @@
 
 // console.log(criarEmails)
 
+// --------------------------------------Exercícios de Funções de array 5
+
+// const contasClientes = [
+// 	{ cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+// 	{ cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+// 	{ cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+// 	{ cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+// 	{ cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+// 	{ cliente: "Soter", saldoTotal: 1200, compras: [] }
+// ]
+
+// const saldo = (conta) =>{
+//     conta.forEach( indice => {
+//         if (indice.compras.length > 0) {
+//             const subtraçao = (valor1, valor2) =>  valor1 + valor2;
+
+//             const valorCompras = indice.compras.reduce(subtraçao);
+
+//             indice.saldoTotal -= valorCompras;
+//         }
+//     }
+// )}
+// saldo(contasClientes)
+// console.log(contasClientes)
+
     
 
   
