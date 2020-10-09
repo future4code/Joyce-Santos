@@ -174,7 +174,16 @@
 // Os array servem para guardar e acessar mais de uma infomação ao mesmo tempo. E os objetos servem para guardar elementos, até mesmo arrays, de forma mais organizada.
 
 // -----------------------------------Exercícios de Objetos 2
-
+// let criaRetangulo = (lado1, lado2) =>{
+//     const retangulo = {
+//     largura: lado1,
+//     altura: lado2,
+//     perimetro: 2*(lado1 + lado2),
+//     area: lado1 * lado2
+//     }
+//     console.log(retangulo)
+// }
+// criaRetangulo()
 
 
 
