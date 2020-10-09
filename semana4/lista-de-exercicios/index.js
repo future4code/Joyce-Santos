@@ -216,6 +216,36 @@
 // }
 // anonimizarPessoa()
 
+// --------------------------------------Exercícios de Funções de array 1
+
+// const arrayDeNomes = [
+// 	{ nome: "Pedro", idade: 20 },
+// 	{ nome: "João", idade: 10 },
+// 	{ nome: "Paula", idade: 12 },
+// 	{ nome: "Artur", idade: 89 } 
+// ]
+
+// // a
+
+// const pessoasAdultas = arrayDeNomes.filter((pessoas) =>{
+//     if(pessoas.idade >= 20){
+//         return true
+//     } 
+
+// })
+
+// // b
+
+// const pessoasCriancas = arrayDeNomes.filter((pessoas) =>{
+//     if(pessoas.idade < 20){
+//         return true
+//     }
+// })
+// console.log(arrayDeNomes)
+// console.log(pessoasAdultas)
+// console.log(pessoasCriancas)
+
+// --------------------------------------Exercícios de Funções de array 2
 
 
 
