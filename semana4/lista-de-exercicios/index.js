@@ -247,6 +247,58 @@
 
 // --------------------------------------Exercícios de Funções de array 2
 
+// a.
+// const array = [1, 2, 3, 4, 5, 6]
 
+// const numerosMultiplicados = array.map((numero)  => {
+//     return numero * 2
+    
+// })
+// console.log(numerosMultiplicados)
 
+// // b.
 
+// const multiplos = array.map((numero)  => {
+//     return String(numero * 3)
+    
+// })
+// console.log(multiplos)
+
+// // c.
+// const array = [1, 2, 3, 4, 5, 6]
+//     const paridade = array.map((numero) => {
+//             if(numero %2 === 0){
+//             console.log(`${numero} é par`)
+//             }else{
+//             numero %2 !== 0
+//             console.log(`${numero} é impar`)
+//             }
+//         })
+//     console.log(paridade)
+
+// --------------------------------------Exercícios de Funções de array 2
+
+// const arrayDePessoas = [
+// 	{ nome: "Paula", idade: 12, altura: 1.8},
+// 	{ nome: "João", idade: 20, altura: 1.3},
+// 	{ nome: "Pedro", idade: 15, altura: 1.9},
+// 	{ nome: "Luciano", idade: 22, altura: 1.8},
+// 	{ nome: "Artur", idade: 10, altura: 1.2},
+// 	{ nome: "Soter", idade: 70, altura: 1.9}
+// ]
+
+// // a.
+// const pessoasAutorizadas = arrayDePessoas.filter((pessoas) =>{
+//     if(pessoas.idade > 14 && pessoas.idade < 60 && pessoas.altura > 1.5){
+//         return true
+//     }
+// })
+// console.log(pessoasAutorizadas)
+
+// // b.
+// const pessoasNaoAutorizadas = arrayDePessoas.filter((pessoas) =>{
+//     if(pessoas.idade < 14 || pessoas.idade > 60 || pessoas.altura < 1.5){
+//         return true 
+//     }
+// })
+// console.log(pessoasNaoAutorizadas)
