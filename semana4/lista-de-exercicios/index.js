@@ -199,7 +199,22 @@
 // }
 // filmeFavorito()
 
+// -----------------------------------Exercícios de Objetos 4
 
+// const usuario ={
+//     nome: "Joyce",
+//     idade: "31", 
+//     email: "psychokiller@yahoo.com.br",
+//     endereco: "São Paulo"
+// }
+// let anonimizarPessoa = () =>{
+//     const novoUsuario ={
+//         ...usuario,
+//         nome: "ANÔNIMO"
+//     }
+//     console.log(novoUsuario)
+// }
+// anonimizarPessoa()
 
 
 
