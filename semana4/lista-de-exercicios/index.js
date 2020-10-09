@@ -276,7 +276,7 @@
 //         })
 //     console.log(paridade)
 
-// --------------------------------------Exercícios de Funções de array 2
+// --------------------------------------Exercícios de Funções de array 3
 
 // const arrayDePessoas = [
 // 	{ nome: "Paula", idade: 12, altura: 1.8},
@@ -302,3 +302,35 @@
 //     }
 // })
 // console.log(pessoasNaoAutorizadas)
+
+// --------------------------------------Exercícios de Funções de array 4
+
+// const arrayConsultas = [
+// 	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+// 	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+// 	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+// 	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+// ]
+
+// const criarEmails = arrayConsultas.map((consulta) => {
+//     let senhor;
+//     let lembrar;
+//     if(consulta.genero === "masculino"){
+//         senhor = "Sr."
+//         lembrar = "lembrá-lo"
+//     }else{
+//         senhor = "Sra."
+//         lembrar = "lembrá-la"
+//     }
+
+//     if (consulta.cancelada === false){
+//     return(`Olá ${senhor} ${consulta.nome}. Estamos enviando esta mensagem para ${lembrar} da sua consulta no dia ${consulta.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`)
+//     }
+//     return (`Olá, ${senhor} ${consulta.nome}. Infelizmente, sua consulta marcada para o dia ${consulta.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`)
+// })
+
+// console.log(criarEmails)
+
+    
+
+  
