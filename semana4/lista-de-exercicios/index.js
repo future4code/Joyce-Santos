@@ -13,3 +13,41 @@
 // // ------------------------------------Exercícios de interpretação de código 4
 
 // Temos um array com alguns números aleatórios e temos duas lets com variáveis, a variavel numero 1 recebe um valor igual a infinity e a variavel numero2 recebe um valor igual a 0. Logo abaixo, um laço com um for of que irá percorrer todo o array numeros e fará a busca de acordo com os if, no primeiro irá fazer uma busca de um número menor que infinito, e irá ir substituindo o valor de numero 1 de acordo com a busca realizada. Já no segundo if, ele irá percorrer o array numeros em busca de algum numero que seja maior que 0, e irá fazer a busca dentro do array e ir substiruindo os números até encontrar o ultimo numero do array maior que 0. No console irá aparecer o menor número (-10) e o maior número (1590) do array respectivamente.
+
+// ---------------------------------------Exercícios de Lógica de Programação 1
+
+// Podemos percorrer/iterar uma lista com: While, for, e for of.
+
+// Ex1.
+// let numeros = [15, 18, 21, 34, 85, 74]
+// let numerosDoArray = () =>{
+//  for (let i = 0; i<3; i++){
+//   console.log(i)
+//  }
+// }
+// numerosDoArray()
+
+// Ex2.
+// let nomesPersonagens = () =>{ 
+// let texto = " "
+// const arrayDePersonagens = ["Peach,", "Mario,", "Daisy,", "Luigi"]
+// for(let string of arrayDePersonagens){
+//     texto = texto + " " + string
+
+// }
+//     console.log("Estes são os personagens do universo Super Mário:" + texto)
+// }
+// nomesPersonagens()
+
+// // Ex3.
+// let soma = 0
+// let numero
+// let somaDosNumeros = () => { 
+// while(numero !== 0){
+//     numero = Number(prompt("Digite um número!"))
+//     soma = soma + numero
+// }
+//     console.log(soma)
+// }
+// somaDosNumeros()
+
