@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Post from './components/Post/Post';
+import styled from 'styled-components';
 
 class App extends React.Component {
   state = {
@@ -27,7 +28,55 @@ class App extends React.Component {
   valorInputFotoUsuario:"",
   valorInputFotoPost:""
 
-  }
+  };
+
+  adicionaPost = () =>{
+    const novoPost = {
+      nomeUsuario: this.state.valorInputUsuario,
+      fotoUsuario: this.state.valorInputFotoUsuario,
+      fotoPost: this.state.valorInputFotoPost
+    }
+
+    const novoPosts = [...this.state.posts, novoPost];
+
+    this.setState({posts: novoPosts})
+    this.setState({valorInputUsuario:""})
+    this.setState({valorInputFotoUsuario:""})
+    this.setState({valorInputFotoPost:""})
+
+  };
+
+  onChangeInputUsuario = (event) => {
+    this.setState({valorInputUsuario: event.target.value});
+
+  };
+
+  onChangeInputFotoUsuario = (event) => {
+    this.setState({valorInputFotoUsuario: event.target.value});
+
+  };
+
+  onChangeInputFotoPost = (event) => {
+    this.setState({valorInputFotoPost: event.target.value});
+
+  };
+
+  EstilizaDivInputs = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  padding: 20px;
+`
+ EstilizaInput = styled.input`
+  padding: 5px;
+`
+
+  EstilizaBotao = styled.button`
+  background-color: magenta;
+  padding: 5px
+  `
+
   render() {
     const listaDePosts = this.state.posts.map((post) => {
       return(
@@ -41,11 +90,27 @@ class App extends React.Component {
 
     return (
       <div className={'app-container'}>
-       {listaDePosts}
-
-
-      </div>
-     
+        <this.EstilizaDivInputs> 
+          <this.EstilizaInput
+            value={this.state.valorInputUsuario}
+            onChange={this.onChangeInputUsuario}
+            placeholder={"Digite seu nome de usuário."}
+          />
+          <this.EstilizaInput
+            value={this.state.valorInputFotoUsuario}
+            onChange={this.onChangeInputFotoUsuario}
+            placeholder={"Coloque aqui sua foto de usuário."}
+          />
+          <this.EstilizaInput
+            value={this.state.valorInputFotoPost}
+            onChange={this.onChangeInputFotoPost}
+            placeholder={"Insira aqui a foto que você quer publicar."}
+          />
+          <this.EstilizaBotao onClick={this.adicionaPost}>Postar</this.EstilizaBotao>
+           </this.EstilizaDivInputs>
+           {listaDePosts}
+        </div>
+          
     );
   }
 }
