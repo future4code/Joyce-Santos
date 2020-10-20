@@ -26,14 +26,15 @@ class App extends React.Component {
   };
 
   componentDidUpdate() {
-    localStorage.setItem("tarefas", JSON.stringify(this.state.tarefas))    
-  }
+    localStorage.setItem("tarefas", JSON.stringify(this.state.tarefas))
+  };
 
   componentDidMount() {
-    const tarefaString = localStorage.getItem("tasks");
-    const tarefaObjeto = JSON.parse(tarefaString);
-    this.setState({tasks: tarefaObjeto})
-  }
+    if(localStorage.getItem("tarefas")) {
+      this.setState({tarefas: JSON.parse(localStorage.getItem("tarefas"))})
+    }
+    
+  };
 
   onChangeInput = (event) => {
     this.setState({inputValue: event.target.value})
@@ -69,7 +70,6 @@ class App extends React.Component {
   onChangeFilter = (event) => {
     const novoFiltro = event.target.value
     this.setState({filtro: novoFiltro})
-
   };
 
   render() {
