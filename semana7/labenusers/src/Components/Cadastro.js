@@ -1,7 +1,13 @@
 import React from "react";
-import Styled from "styled-components";
+import styled from "styled-components";
 import axios from "axios";
-import App from "../App.js"
+
+const Botao = styled.button`
+background-color: magenta;
+margin-top: 5px;
+margin-left: 5px;
+`
+
 
 class Cadastro extends React.Component {
   state = {
@@ -11,11 +17,7 @@ class Cadastro extends React.Component {
     emailValue: "",
   };
 
-  componentDidMount = () => {
-    this.pegarUsuario();
-  };
-
-  adicionarUsuario = () => {
+   adicionarUsuario = () => {
     const body = {
       name: this.state.nameValue,
       email: this.state.emailValue,
@@ -33,31 +35,13 @@ class Cadastro extends React.Component {
       .then((resposta) => {
         this.setState({ nameValue: "" });
         this.setState({ emailValue: "" });
-        console.log(resposta.message);
         alert("Ae! Usuário adicionado!!!");
       })
       .catch((error) => {
-        console.log(error.data);
-        alert(error.message);
+        alert("Opa! Algo errado não está certo!");
       });
   };
 
-  pegarUsuario = () => {
-    axios
-      .get(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-        {
-          headers: {
-            Authorization: "joyce-santos-dumont",
-          },
-        }
-      )
-
-      .then((resposta) => {
-        this.setState({ name: resposta.data });
-        this.setState({ email: resposta.data });
-      });
-  };
 
   onChangeInputName = (event) => {
     this.setState({ nameValue: event.target.value });
@@ -67,9 +51,11 @@ class Cadastro extends React.Component {
     this.setState({ emailValue: event.target.value });
   };
 
-render(){
+  render() {
     return (
       <div>
+        
+        <h3> Cadastro </h3>
         <p> Nome: </p>
         <input
           placeholder="Insira o seu nome aqui"
@@ -82,10 +68,10 @@ render(){
           value={this.state.emailValue}
           onChange={this.onChangeInputEmail}
         ></input>
-        <button onClick={this.adicionarUsuario}>Cadastrar Usuário</button>
+        <Botao onClick={this.adicionarUsuario}>Cadastrar Usuário</Botao>
       </div>
     );
-}
+  }
 }
 
 export default Cadastro

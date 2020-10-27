@@ -1,7 +1,7 @@
 import React from "react";
 import Styled from "styled-components";
 import axios from "axios";
-import App from "../App.js"
+
 
 class ListaDeUsuarios extends React.Component {
     state = {
@@ -9,9 +9,9 @@ class ListaDeUsuarios extends React.Component {
 
     }
 
-    // componentDidMount = () => {
-    //   this.mostraUsuario
-    // }
+    componentDidMount = () => {
+      this.mostraUsuario()
+    }
 
     mostraUsuario = () => {
       axios.get(
@@ -25,24 +25,28 @@ class ListaDeUsuarios extends React.Component {
     
     .then((resposta) => {
       this.setState({usuarios: resposta.data})
+      console.log(resposta)
     
     })
 
     .catch((error) => {
-      alert("Hummm, não deu pra mostrar a lista de usuários!")
+      alert("Não foi possível exibir")
+      
     })
 
     }
 
   render() {
-    // const randerizaUsuario () =>{
+    const randerizaUsuario = this.state.usuarios.map((usuario) =>{
+      return <p key={usuario.id}> {usuario.name} </p>
 
-    // }
-    return(
-
-      <h1> Lista de Usuarios Cadastrados</h1>
-
-    )
+    })
+    return (
+      <div>
+        <h1>Lista de Usuários Cadastrados</h1>
+        {randerizaUsuario}
+      </div>
+    );
     
   }
 }
