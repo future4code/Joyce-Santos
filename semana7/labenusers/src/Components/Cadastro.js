@@ -8,7 +8,6 @@ margin-top: 5px;
 margin-left: 5px;
 `
 
-
 class Cadastro extends React.Component {
   state = {
     name: "",
@@ -54,20 +53,21 @@ class Cadastro extends React.Component {
   render() {
     return (
       <div>
-        
         <h3> Cadastro </h3>
-        <p> Nome: </p>
-        <input
-          placeholder="Insira o seu nome aqui"
-          value={this.state.nameValue}
-          onChange={this.onChangeInputName}
-        ></input>
-        <p> E-mail:</p>
-        <input
-          placeholder="Insira agora o seu e-mail"
-          value={this.state.emailValue}
-          onChange={this.onChangeInputEmail}
-        ></input>
+          <p> Nome: </p>
+          <input
+            placeholder="Insira o seu nome aqui"
+            value={this.state.nameValue}
+            onChange={this.onChangeInputName}
+          ></input>
+          <p> E-mail:</p>
+          <input
+            placeholder="Insira agora o seu e-mail"
+            value={this.state.emailValue}
+            onChange={this.onChangeInputEmail}
+          ></input>
+        
+
         <Botao onClick={this.adicionarUsuario}>Cadastrar Usuário</Botao>
       </div>
     );

@@ -8,7 +8,6 @@ const AppContainer = styled.div`
 display: flex;
 justify-content: center;
 text-align: center;
-
 `
 
 const Botao = styled.button`
@@ -43,9 +42,7 @@ class App extends React.Component {
     };
     return (
       <div>
-        <Botao onClick={this.irParaListaUsuarios}>
-          {this.state.botao}{" "}
-        </Botao>
+        <Botao onClick={this.irParaListaUsuarios}>{this.state.botao} </Botao>
         <AppContainer>
           <div>{randerizaUsuario()}</div>
         </AppContainer>

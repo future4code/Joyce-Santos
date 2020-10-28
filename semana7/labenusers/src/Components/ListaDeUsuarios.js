@@ -54,6 +54,7 @@ class ListaDeUsuarios extends React.Component {
       )
       .then(() =>{
         alert("Tchau Usuário!!!")
+          this.randerizaUsuario();
       })
       .catch((error)  => {
         alert("Deu ruim aqui também!")
@@ -67,7 +68,8 @@ class ListaDeUsuarios extends React.Component {
       return (
         <p key={usuario.id}> 
           {usuario.name} 
-          <Botao onClick={()=>{this.deletaUsuario(usuario.id)}}>Del Usuário</Botao>
+          <Botao onClick={()=>{this.deletaUsuario(usuario.id)}}>X</Botao>
+          
         </p>
         )}
       )
