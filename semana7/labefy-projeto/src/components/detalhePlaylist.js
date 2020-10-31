@@ -29,7 +29,6 @@ class DetalhePlaylist extends React.Component {
       this.props.quantity !== 0 ? mapFaixas : <p>Vamos adicionar algumas músicas?</p>;
     return (
       <div>
-        <Botao onClick={this.props.voltar}>Home</Botao>
         <h1>{this.props.nomePlaylist}</h1>
         {renderCorreta}
         <AddMusica
