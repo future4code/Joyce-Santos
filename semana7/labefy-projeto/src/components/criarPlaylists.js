@@ -27,7 +27,7 @@ class CriarPlaylists extends React.Component {
     };
     axios
       .post(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+        "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists", body,
         {
           headers: {
             Authorization: "joyce-santos-dumont",

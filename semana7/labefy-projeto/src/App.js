@@ -24,7 +24,7 @@ class App extends React.Component {
    
     return (
       <AppContainer>
-        <h1>Bem Vindes ao LabeFy!!!</h1>
+        <h1>Bem Vindes ao AstroFy!!!</h1>
         <Playlists />
         </AppContainer>
     );
