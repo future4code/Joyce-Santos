@@ -13,7 +13,9 @@ function App() {
         <TelaMatch/>
       )
     }else {
-      return <TelaPerfil />;
+      return(
+        <TelaPerfil />
+      ) 
       
     }
    

@@ -1,53 +1,84 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
-function Perfil(props) {
-  const [perfil, setPerfil] = useState([])
+const Imagem = styled.img`
+  width: 200px;
+  height: 300px;
+`;
 
-  useEffect(()=>{
-    mostrarPerfil()
-  },[perfil])
+function TelaPerfil(props) {
+  const [perfil, setPerfil] = useState({});
+  const [escolhePerfil, setEscolhePerfil] = useState(false)
 
-  const mostrarPerfil = () =>{
-    axios.get("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/joyce/person")
-    .then((response) =>{
-      setPerfil(response.data.profile)
-    }).catch((error)=>{
-      console.log(error.message)
-    })
+  useEffect(() => {
+    escolherPessoa();
+  }, []);
+
+  const escolherPessoa = () => {
+    axios
+      .get(
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/joyce-santos/person"
+      )
+
+      .then((response) => {
+        setPerfil(response.data.profile);
+      })
+      .catch((error) => {
+        window.alert("Show de erro");
+      });
+  };
+
+  const escolherPerfil = () => {
+    const body = {
+      id: perfil.id,
+      choice: true,
+    };
+    axios
+      .post(
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/joyce-santos/choose-person",
+        body
+      )
+
+      .then((response) => {
+        escolherPessoa();
+        console.log("deu bom");
+      })
+      .catch((error) => {
+        window.alert("Erro de escolha");
+      });
+  };
+
+  const onClickCurti = () => {
+    setEscolhePerfil(true)
+    escolherPerfil()
+    console.log("SouTrue")
+
   }
 
-  const escolhePessoa = () =>{
-const body = {
-  id: perfil.id,
-  choice: true
-}
-    axios.post(
-      "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/joyce/choose-person"
-    , body,
-    )
+  const onClickNaoCurti = () => {
+    setEscolhePerfil(false)
+    escolherPerfil()
+    console.log("SouFalse")
 
-    .then((resposta)=>{
-      mostrarPerfil()
-  })
-  .catch((error)=>{
-    console.log(error.message)
-  })
+  };
 
-  
+ 
 
   return (
     <div>
-      <header>
-        <h1>Astromatch</h1>
-      </header>
-        TESTE PERFIL
+      <h1>Astromatch</h1>
+      <div>
+        <Imagem img src={perfil.photo} />
+        <p>{perfil.name}</p>
+        <p>{perfil.age}</p>
+        <p>{perfil.bio}</p>
+        <button onClick={onClickNaoCurti}> X </button>
+        <button onClick={onClickCurti}> ♥ </button>
+      </div>
+      <p>TELA DE PERFIS</p>
     </div>
   );
-  }
-  }
+}
 
-
-
-export default Perfil;
+export default TelaPerfil;
