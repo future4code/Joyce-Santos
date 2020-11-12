@@ -1,11 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
+import lixo from './img/lixo.png'
 
 const Imagem = styled.img`
-width: 200px;
-height: 300px;
+  width: 100px;
+  height: 100px;
+  margin-top: 15px;
+  
+`;
+
+const ImgLixo = styled.img`
+  width: 35px;
+  height: 35px;
+  margin-left: 310px;
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+const TextMatches = styled.p`
+text-align: center;
+
 `
+
+const Matches = styled.div`
+margin-left: 10px;
+
+
+`
+
+
+
 
 function TelaMatch(){
     const [match, setMatch] = useState([])
@@ -38,23 +64,25 @@ function TelaMatch(){
       })
     }
 
-    const renderizaMatch = match.length ? (
-      match.map((perfil) => {
+    const renderizaMatch = match.map((perfil) => {
         return (
-          <li key={perfil.id}>
+          <p key={perfil.id}>
             {" "}
             <Imagem img src={perfil.photo} /> {perfil.name}
-          </li>
+          </p>
         );
       })
-    ) : 
-      <p></p>
+
 
     return (
       <div>
-        {renderizaMatch}
-        <p>AQUI VÃO APARECER OS MATCHS </p>
-        <button onClick={onClickLimpar}>Limpar</button>
+        <TextMatches>
+          <h1>Astromatch</h1>
+          <b>Aqui estão os seus Matches!</b>{" "}
+        </TextMatches>
+        <Matches>{renderizaMatch}</Matches>
+
+        <ImgLixo img src={lixo} onClick={onClickLimpar} />
       </div>
     );
 }
