@@ -1,12 +1,20 @@
 import React from "react";
-import { BigButton, Header, ButtonHeader } from "./styled";
+import {
+  BigButton,
+  Header,
+  ButtonHeader,
+  DivBigButton,
+  H2Home,
+  DivContainer,
+  DivH1Header,
+} from "./styled";
 import { useHistory } from "react-router-dom";
 
 function HomePage() {
   const history = useHistory();
 
-  const goToApplicationFormPage = () =>{
-    history.push("/formulario");
+  const goToFormPage = () =>{
+    history.push("/escolherviagem");
   }
 
   const goToLoginPage = () =>{
@@ -15,9 +23,11 @@ function HomePage() {
 
 
   return (
-    <div>
+    <DivContainer>
       <Header>
-        <h1>Labe-X</h1>
+        <DivH1Header>
+          <h1> Labe-X</h1>
+        </DivH1Header>
         <ButtonHeader onClick={goToLoginPage}>
           {" "}
           Login Administrador{" "}
@@ -25,17 +35,19 @@ function HomePage() {
       </Header>
 
       <div>
-        <p>
+        <H2Home>
           {" "}
           Olá, somos a Labe-X, uma empresa especializada em recrutamento para
           viagens espaciais, clique no botão de acordo com a sua necessidade.{" "}
-        </p>
+        </H2Home>
 
-        <BigButton onClick={goToApplicationFormPage}>
-          Quero me inscrever em uma viagem espacial!!!
-        </BigButton>
+        <DivBigButton>
+          <BigButton onClick={goToFormPage}>
+            <h3>Quero me inscrever em uma viagem espacial!!! </h3>
+          </BigButton>
+        </DivBigButton>
       </div>
-    </div>
+    </DivContainer>
   );
   
 

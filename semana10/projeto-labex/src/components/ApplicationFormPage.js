@@ -1,7 +1,16 @@
 import React from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { Header, ButtonHeader } from "./styled";
+import {
+  Header,
+  ButtonHeader,
+  DivH1Header,
+  RegisterButton,
+  DivContainer,
+  DivRegister,
+  InputForm,
+  H2Home
+} from "./styled";
 
 function ApplicationFormPage() {
   const history = useHistory()
@@ -14,19 +23,23 @@ function ApplicationFormPage() {
 
 
   return (
-    <div>
+    <DivContainer>
       <Header>
-        <h1>Labe-X</h1>
+        <DivH1Header>
+          <h1>Labe-X</h1>
+        </DivH1Header>
+
         <ButtonHeader onClick={goToHome}>Voltar</ButtonHeader>
       </Header>
-      <div>
-        <h3>Cadastrar uma nova viagem</h3>
+
+      <H2Home>Cadastrar uma nova viagem</H2Home>
+      <DivRegister>
         <label>Nome:</label>
         <input></input>
         <label>Idade:</label>
         <input></input>
         <label>Texto de inscrição:</label>
-        <input></input>
+        <InputForm></InputForm>
         <label>Profissão</label>
         <input></input>
         <label>País</label>
@@ -38,10 +51,10 @@ function ApplicationFormPage() {
           <option>Nigéria</option>
           <option>França</option>
         </select>
-      </div>
 
-      <button>Enviar Inscrição</button>
-    </div>
+        <RegisterButton>Enviar Inscrição</RegisterButton>
+      </DivRegister>
+    </DivContainer>
   );
  
 }

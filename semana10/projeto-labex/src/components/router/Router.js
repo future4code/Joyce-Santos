@@ -1,12 +1,13 @@
 import React from "react";
 import HomePage from '../HomePage'
 import ApplicationFormPage from "../ApplicationFormPage";
-import ListTripsPage from "../ListTripsPage"
+import ListTripsPageAdm from "../ListTripsPageAdm"
 import CreateTripPage from "../CreateTripPage"
 import TripApprovalPage from "../TripApprovalPage"
 import LoginPage from "../LoginPage"
 import HomeAdmPage from '../HomePageAdm'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ListTripsPage from "../ListTripsPage"
 
 function Router(){
 
@@ -26,7 +27,7 @@ function Router(){
           </Route>
 
           <Route exact path="/listaviagens">
-            <ListTripsPage />
+            <ListTripsPageAdm />
           </Route>
 
           <Route exact path="/novasviagens">
@@ -39,6 +40,10 @@ function Router(){
 
           <Route exact path="/homeadm">
             <HomeAdmPage />
+          </Route>
+
+          <Route exact path="/escolherviagem">
+            <ListTripsPage />
           </Route>
         </Switch>
       </BrowserRouter>

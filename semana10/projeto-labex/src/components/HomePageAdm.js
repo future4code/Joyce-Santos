@@ -1,6 +1,14 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Header, ButtonHeader } from "./styled";
+import {
+  Header,
+  ButtonHeader,
+  DivH1Header,
+  AdmButtons,
+  H2Home,
+  DivButtonHome,
+  DivContainer,
+} from "./styled";
 
 function HomeAdmPage() {
     const history = useHistory()
@@ -23,28 +31,36 @@ function HomeAdmPage() {
  
 
   return (
-    <div>
+    <DivContainer>
       <Header>
-        <h1>Labe-X</h1>
+        <DivH1Header>
+          <h1>Labe-X</h1>
+        </DivH1Header>
+
         <ButtonHeader onClick={goToHome}> Voltar para Home </ButtonHeader>
       </Header>
+
       <div>
-        <p>
+        <H2Home>
           Bem Vindo Administrador, aqui você poderá vizualizar e criar novas
           viagens, além de listar, aprovar ou rejeitar novas candidaturas.
-        </p>
+        </H2Home>
 
-        <button onClick={goToCreateTripPage}>Cadastrar Novas Viagens</button>
+        <DivButtonHome>
+          <AdmButtons onClick={goToCreateTripPage}>
+            Cadastrar Novas Viagens
+          </AdmButtons>
 
-        <button onClick={goToListTripsPage}>
-          Listar suas viagens cadastradas
-        </button>
+          <AdmButtons onClick={goToListTripsPage}>
+            Listar suas viagens cadastradas
+          </AdmButtons>
 
-        <button onClick={goToTripApprovalPage}>
-          Listar, aprovar ou rejeitar inscrições
-        </button>
+          <AdmButtons onClick={goToTripApprovalPage}>
+            Listar, aprovar ou rejeitar inscrições
+          </AdmButtons>
+        </DivButtonHome>
       </div>
-    </div>
+    </DivContainer>
   );
 }
 
