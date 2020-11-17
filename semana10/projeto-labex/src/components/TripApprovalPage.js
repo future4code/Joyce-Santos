@@ -1,10 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import {Header, ButtonHeader} from './styled'
+import { Header, ButtonHeader } from "./styled";
 
-function ListTripsPage() {
-const history =useHistory()
+function TripDetailsPage() {
+  const history = useHistory()
 
    const goToHomeAdm = () => {
      history.push("/homeAdm");
@@ -15,10 +15,9 @@ const history =useHistory()
         <h1>Labe-X</h1>
         <ButtonHeader onClick={goToHomeAdm}> Voltar para Home </ButtonHeader>
       </Header>
-
-      <p>Lista das Viagens Disponíveis</p>
+      <p>Aqui você pode gerenciar as inscrições para suas viagens</p>
     </div>
   ); 
 }
 
-export default ListTripsPage;
+export default TripDetailsPage;

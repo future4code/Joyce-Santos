@@ -1,12 +1,14 @@
 import React from 'react'
-import axios from 'axios'
+import Router from './components/router/Router'
 
 
 function App() {
   return (
     <div>
+      <Router />
 
-      APP
+      
+
     
     </div>
   );
