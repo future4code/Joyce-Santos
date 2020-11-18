@@ -1,6 +1,6 @@
 import React from 'react'
 import Router from './components/router/Router'
-import {DivContainer} from "./components/styled"
+
 
 
 

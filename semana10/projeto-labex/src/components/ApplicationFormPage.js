@@ -38,12 +38,13 @@ function ApplicationFormPage() {
         <input></input>
         <label>Idade:</label>
         <input></input>
-        <label>Texto de inscrição:</label>
+        <label>Por que você merece viajar com a Labe-X?:</label>
         <InputForm></InputForm>
         <label>Profissão</label>
         <input></input>
         <label>País</label>
         <select>
+          <option>Selecione seu país de origem</option>
           <option>Brasil</option>
           <option>Costa Rica</option>
           <option>Holanda</option>

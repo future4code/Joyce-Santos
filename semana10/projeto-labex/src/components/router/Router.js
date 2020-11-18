@@ -18,7 +18,7 @@ function Router(){
             <HomePage />
           </Route>
 
-          <Route exact path="/formulario">
+          <Route exact path="/formulario/:id">
             <ApplicationFormPage />
           </Route>
 
