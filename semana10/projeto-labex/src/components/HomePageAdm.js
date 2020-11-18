@@ -9,6 +9,7 @@ import {
   DivButtonHome,
   DivContainer,
 } from "./styled";
+import { useProtectPage } from "./hooks/useProtectPage"; 
 
 function HomeAdmPage() {
     const history = useHistory()
@@ -28,6 +29,8 @@ function HomeAdmPage() {
      const goToHome = () => {
        history.push("/");
      };
+
+      useProtectPage();
  
 
   return (

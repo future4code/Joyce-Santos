@@ -4,13 +4,17 @@ import { useHistory } from "react-router-dom";
 import { Header, ButtonHeader, DivH1Header, DivContainer, H2Home, Image } from "./styled";
 import check from "./img/check.png"
 import cross from "./img/cross.png"
+import {useProtectPage} from "./hooks/useProtectPage" 
 
 function TripDetailsPage() {
   const history = useHistory()
+  
 
-   const goToHomeAdm = () => {
-     history.push("/homeAdm");
+   const goToHome = () => {
+     history.push("/home");
    };
+
+   useProtectPage();
   return (
     <DivContainer>
       <Header>
@@ -18,7 +22,7 @@ function TripDetailsPage() {
           <h1>Labe-X</h1>
         </DivH1Header>
 
-        <ButtonHeader onClick={goToHomeAdm}> Voltar para Home </ButtonHeader>
+        <ButtonHeader onClick={goToHome}> Voltar para Home </ButtonHeader>
       </Header>
       <H2Home>Aqui você pode gerenciar as inscrições para suas viagens</H2Home>
 

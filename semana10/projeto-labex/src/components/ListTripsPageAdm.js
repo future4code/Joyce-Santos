@@ -9,6 +9,7 @@ import {
   H2Home,
   DivContainerList,
 } from "./styled";
+import { useProtectPage } from "./hooks/useProtectPage"; 
 
 function ListTripsPageAdm() {
 const history =useHistory()
@@ -16,6 +17,9 @@ const history =useHistory()
    const goToHomeAdm = () => {
      history.push("/homeAdm");
    };
+
+   useProtectPage();
+
   return (
     <DivContainerList>
       <Header>

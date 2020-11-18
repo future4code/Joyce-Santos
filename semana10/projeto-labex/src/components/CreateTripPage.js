@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Header, ButtonHeader, DivH1Header, CreateButton, DivContainer, H2Home, DivRegister, InputForm } from "./styled";
+import { useProtectPage } from "./hooks/useProtectPage"; 
 
 function CreateTripsPage() {
   const history = useHistory();
@@ -9,6 +10,8 @@ function CreateTripsPage() {
   const goToHomeAdm = () => {
     history.push("/homeAdm");
   };
+
+  useProtectPage();
 
   return (
     <DivContainer>

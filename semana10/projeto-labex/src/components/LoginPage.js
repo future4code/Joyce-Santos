@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useEffect} from "react";
 import { useHistory } from "react-router-dom";
 import {
   Header,
@@ -9,6 +9,8 @@ import {
   H2Home,
   DivLogin,
 } from "./styled";
+import {useInput} from './hooks/useInput'
+import axios from "axios";
 
 function LoginPage() {
   const history = useHistory();
@@ -17,9 +19,36 @@ function LoginPage() {
     history.push("/");
   };
 
-  const goToHomeAdm = () => {
-    history.push("/homeadm");
-  };
+  
+  useEffect(()=>{
+    const token = localStorage.getItem("token");
+    if(token){
+      history.push("/homeadm")
+    }
+  }, [history])
+
+  const [email, handleEmail] = useInput();
+  const [password, handlePassword] = useInput();
+
+  const login = () =>{
+    const body={
+      email: email,
+      password: password,
+    }
+
+    axios.post(
+      "https://us-central1-labenu-apis.cloudfunctions.net/labeX/joyce-dumont/login", body
+    )
+
+    .then((response) =>{
+      localStorage.setItem("token", response.data.token)
+      history.push("/homeadm")
+    })
+    .catch((error) =>{
+      console.log(error.message)
+
+    })
+  }
 
   return (
     <DivContainer>
@@ -34,12 +63,12 @@ function LoginPage() {
       <div>
         <H2Home>Já faz parte da nossa comunidade? Faça o Login</H2Home>
         <DivLogin>
-          <label>Nome:</label>
-          <input placeholder={"Nome"}></input>
           <label>E-mail:</label>
-          <input placeholder={"E-mail"}></input>
+          <input type="email" value={email} onChange={handleEmail}></input>
+          <label>Senha:</label>
+          <input type="password" value={password} onChange={handlePassword} ></input>
 
-          <LoginButton onClick={goToHomeAdm}>Entrar</LoginButton>
+          <LoginButton onClick={login}>Entrar</LoginButton>
         </DivLogin>
       </div>
     </DivContainer>
