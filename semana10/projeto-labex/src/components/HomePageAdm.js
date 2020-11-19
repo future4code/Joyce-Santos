@@ -22,49 +22,49 @@ function HomeAdmPage() {
         history.push("/listaviagens")
     }
 
-    const goToTripApprovalPage = () =>{
-        history.push("/aprovarinscricoes");
-    }
+    // const goToTripApprovalPage = (tripId) => {
+    //   history.push(`/aprovarinscricoes/${tripId}`);
+    // }
 
-     const goToHome = () => {
-       history.push("/");
-     };
+      const goToHome = () => {
+        history.push("/");
+      };
 
       useProtectPage();
- 
 
-  return (
-    <DivContainer>
-      <Header>
-        <DivH1Header>
-          <h1>Labe-X</h1>
-        </DivH1Header>
+      return (
+        <DivContainer>
+          <Header>
+            <DivH1Header>
+              <h1>Labe-X</h1>
+            </DivH1Header>
 
-        <ButtonHeader onClick={goToHome}> Voltar para Home </ButtonHeader>
-      </Header>
+            <ButtonHeader onClick={goToHome}> Voltar para Home </ButtonHeader>
+          </Header>
 
-      <div>
-        <H2Home>
-          Bem Vindo Administrador, aqui você poderá vizualizar e criar novas
-          viagens, além de listar, aprovar ou rejeitar novas candidaturas.
-        </H2Home>
+          <div>
+            <H2Home>
+              Bem Vindo Administrador, aqui você poderá vizualizar e criar novas
+              viagens, além de listar, aprovar ou rejeitar novas candidaturas.
+            </H2Home>
 
-        <DivButtonHome>
-          <AdmButtons onClick={goToCreateTripPage}>
-            Cadastrar Novas Viagens
-          </AdmButtons>
+            <DivButtonHome>
+              <AdmButtons onClick={goToCreateTripPage}>
+                Cadastrar Novas Viagens
+              </AdmButtons>
 
-          <AdmButtons onClick={goToListTripsPage}>
-            Listar suas viagens cadastradas
-          </AdmButtons>
+              <AdmButtons onClick={goToListTripsPage}>
+                Gerenciar viagens e aprovações
+              </AdmButtons>
 
-          <AdmButtons onClick={goToTripApprovalPage}>
-            Listar, aprovar ou rejeitar inscrições
-          </AdmButtons>
-        </DivButtonHome>
-      </div>
-    </DivContainer>
-  );
-}
+              {/* <AdmButtons onClick={goToTripApprovalPage}>
+                Listar, aprovar ou rejeitar inscrições
+              </AdmButtons> */}
+            </DivButtonHome>
+          </div>
+        </DivContainer>
+      );
+    };
+
 
 export default HomeAdmPage;

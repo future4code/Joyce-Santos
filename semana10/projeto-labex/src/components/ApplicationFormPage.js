@@ -82,6 +82,7 @@ function ApplicationFormPage() {
             pattern={"[A-Za-z ]{3,}"}
             required
           />
+          <br></br>
           <label>Idade:</label>
           <input
             value={form.age}
@@ -91,6 +92,7 @@ function ApplicationFormPage() {
             min={18}
             required
           />
+          <br></br>
           <label>Por que você merece viajar com a Labe-X?:</label>
           <input
             value={form.applicationText}
@@ -100,6 +102,7 @@ function ApplicationFormPage() {
             pattern={"[A-Za-z ]{30,}"}
             required
           />
+          <br></br>
           <label>Profissão</label>
           <input
             value={form.profession}
@@ -109,8 +112,9 @@ function ApplicationFormPage() {
             pattern={"[A-Za-z ]{10,}"}
             required
           />
+          <br></br>
           <label>País:</label>
-          <Countries onChangeInput={onChangeInput} country={form.country} />  
+          <Countries onChangeInput={onChangeInput} country={form.country} />
           <RegisterButton>Enviar Inscrição</RegisterButton>
         </form>
       </DivRegister>

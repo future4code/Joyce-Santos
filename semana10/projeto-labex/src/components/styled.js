@@ -36,6 +36,8 @@ export const DivContainerList = styled.div`
 `;
 
 
+
+
 export const BigButton = styled.button`
   background-color: black;
   width: 400px;

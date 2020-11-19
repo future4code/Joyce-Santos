@@ -1,92 +1,84 @@
-import {React, useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
-import { Header, ButtonHeader, DivH1Header, DivContainer, H2Home, Image } from "./styled";
-import check from "./img/check.png"
-import cross from "./img/cross.png"
-import {useProtectPage} from "./hooks/useProtectPage" 
+import {
+  Header,
+  ButtonHeader,
+  DivH1Header,
+  DivContainerList,
+  H2Home,
+  Image,
+} from "./styled";
+import check from "./img/check.png";
+import cross from "./img/cross.png";
+import { useProtectPage } from "./hooks/useProtectPage";
 
 function TripDetailsPage() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [trip, setTrip] = useState();
-  const [application, setApplication] = useState()
-  const history = useHistory()
-  
-   const goToHome = () => {
-     history.push("/homeadm");
-   };
+  const history = useHistory();
+  const [newCandidates, setNewCandidates] = useState([]);
 
-    useEffect(() => {
-      getCandidates();
-    }, []);
+  const goToHome = () => {
+    history.push("/listaviagens");
+  };
 
-    useProtectPage();
+  useEffect(() => {
+    getCandidates();
+  }, []);
 
-   const getCandidates = () => {
-          axios
-            .get(
-              `https://us-central1-labenu-apis.cloudfunctions.net/labeX/joyce-dumont/trip/${id}`,
-              {
-                headers: {
-                  auth: localStorage.getItem("token"),
-                },
-              }
-            )
-            .then((response) => {
-              setTrip(response.data.trip.name);
-              setApplication(response.data.trip.candidates);
-              console.log("Entrou no then")
-            })
-            .catch((error) => {
-              console.log(error.message);
-              console.log("Caiu no erro de novo mano!")
-            });
-   };
+  useProtectPage();
 
-   const aceptCandidate = (candidateId) => {
-      const body = {
-       approve: true,
-     };
-     axios
-       .put(
-         `https://us-central1-labenu-apis.cloudfunctions.net/labeX/joyce-dumont/trips/${id}/candidates/${candidateId}/decide/`,
-         body,{
-           headers:{
-             auth: localStorage.getItem("token")
-           }
-         }
-       )
-       .then((response) => {
-         alert("Parabéns! Você foi aprovado para viajar com a Labe-X");
-       })
-       .catch((error) => {
-         console.log(error.message);
-       });
-   };
-   const rejectCandidate = (candidateId) => {
-      const body = {
-       approve: false,
-     };
-     axios
-       .put(
-         `https://us-central1-labenu-apis.cloudfunctions.net/labeX/joyce-dumont/trips/${id}/candidates/${candidateId}/decide/`,
-         body,
-         {
-           headers:{
-             auth: localStorage.getItem("token")
-           }
-          })
-       .then(() => {
-         alert("Que pena! Tente uma próxima vez! :( ");
-       })
-       .catch((error) => {
-         console.log(error.message);
-       });
-   };
+  const getCandidates = () => {
+    axios
+      .get(
+        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/joyce-dumont/trip/${id}`,
+        {
+          headers: {
+            auth: localStorage.getItem("token"),
+          },
+        }
+      )
+      .then((response) => {
+        setTrip(response.data.trip.name);
+        setNewCandidates(response.data.trip.candidates);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
-  
+  const aceptCandidate = (decision, candidatesId) => {
+    const body = {
+      approve: decision,
+    };
+    axios
+      .put(
+        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/joyce-dumont/trips/${id}/candidates/${candidatesId}/decide/`,
+        body,
+        {
+          headers: {
+            auth: localStorage.getItem("token"),
+          },
+        }
+      )
+      .then(() => {
+        if (decision) {
+          alert("Parabéns! Você foi aprovado para viajar com a Labe-X");
+        } else {
+          alert("Que pena! Tente uma próxima vez! :( ");
+        }
+      })
+
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  console.log(newCandidates)
+
   return (
-    <DivContainer>
+    <DivContainerList>
       <Header>
         <DivH1Header>
           <h1>Labe-X</h1>
@@ -99,34 +91,35 @@ function TripDetailsPage() {
       <h3>{trip}</h3>
 
       <div>
+        {newCandidates.length === 0 ? (
+          <p>Nenhum Candidato Inscrito! :'( </p>
+        ) : (
+          newCandidates.map((candidate) => {
+            return (
+              <div>
+                <p>Nome do Candidato: {candidate.name}</p>
+                <p>Idade: {candidate.age}</p>
+                <p>Profissão: {candidate.profession}</p>
+                <p>Texto de inscrição: {candidate.applicationText}</p>
+                <p>País: {candidate.country}</p>
 
-       {getCandidates.length === 0 ? (<p>Nenhum Candidato! :'( </p>) : getCandidates.map = (candidate) => {
-          return (
-            <div>
-                  <p>
-                    Olá!, meu nome é {candidate.name}, tenho {candidate.age}{" "}
-                    anos e minha profissão é {candidate.profession}, e moro no{" "}
-                    {candidate.country} mereço participar das viagens com a
-                    Labe-X porquê {candidate.applicationText}
-                  </p>
-              
                 <Image
                   img
                   src={check}
-                  onClick={() => aceptCandidate(candidate.id)}
+                  onClick={() => aceptCandidate(true, candidate.id)}
                 />
                 <Image
                   img
                   src={cross}
-                  onClick={() => rejectCandidate(candidate.id)}
+                  onClick={() => aceptCandidate(false, candidate.id)}
                 />
-              
-            </div>
-          );
-          }}
+              </div>
+            );
+          })
+        )}
       </div>
-    </DivContainer>
-  ); 
+    </DivContainerList>
+  );
 }
 
 export default TripDetailsPage;

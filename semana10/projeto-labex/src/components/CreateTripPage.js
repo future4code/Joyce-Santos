@@ -82,6 +82,7 @@ function CreateTripsPage() {
               type="text"
               required
             />
+            <br></br>
             <label>Planeta:</label>
             <select
               value={form.planet}
@@ -99,14 +100,17 @@ function CreateTripsPage() {
               <option value="Urano">Urano</option>
               <option value="Netuno">Netuno</option>
             </select>
+            <br></br>
             <label>Data da Viagem:</label>
             <input
               value={form.date}
               onChange={onChangeInput}
               name={"date"}
+              min={"2021-01-01"}
               type="date"
               required
             />
+            <br></br>
             <label>Duração da Viagem:</label>
             <input
               value={form.durationInDays}
@@ -116,8 +120,9 @@ function CreateTripsPage() {
               type="number"
               required
             />
+            <br></br>
             <label>Descrição da Viagem:</label>
-            <InputForm
+            <input
               value={form.description}
               onChange={onChangeInput}
               name={"description"}
