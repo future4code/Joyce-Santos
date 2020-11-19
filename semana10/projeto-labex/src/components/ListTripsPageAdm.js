@@ -25,10 +25,10 @@ function ListTripsPageAdm() {
 
   useProtectPage();
 
-  const getTrip = () => {
+  const getTrip = (id) => {
     axios
       .get(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labeX/joyce-dumont/trips",
+        `https://us-central1-labenu-apis.cloudfunctions.net/labeX/joyce-dumont/trips/`,
         {
           headers: {
             Authentication: localStorage.getItem("token"),
@@ -58,6 +58,7 @@ function ListTripsPageAdm() {
       ) : (
         trips.map((trip) =>
           <div>
+            <p key={trip.id} />
             
               <p>Nome: {trip.name}</p>
               <p>Planeta: {trip.planet}</p>
@@ -65,7 +66,6 @@ function ListTripsPageAdm() {
               <p>Data da viagem: {trip.date}</p>
               <p>Descrição: {trip.description}</p>
               <br></br>
-           
           </div>
         ))
       }

@@ -34,7 +34,7 @@ function Router(){
             <CreateTripPage />
           </Route>
 
-          <Route exact path="/aprovarinscricoes">
+          <Route exact path="/aprovarinscricoes/:id">
             <TripApprovalPage />
           </Route>
 

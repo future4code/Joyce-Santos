@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import {
   Header,
   ButtonHeader,
@@ -8,19 +8,57 @@ import {
   RegisterButton,
   DivContainer,
   DivRegister,
-  InputForm,
   H2Home
 } from "./styled";
+import {useForm} from "./hooks/useForm"
+import { Countries } from "./Countries";
+
 
 function ApplicationFormPage() {
   const history = useHistory()
+  const {id} = useParams()
+
+  const { form, onChange } = useForm({
+    name: "",
+    age: "",
+    applicationText: "",
+    profession: "",
+    country: "",
+  });
+  const onChangeInput = (event) =>{
+    const {value, name} = event.target;
+    onChange(value, name)
+  }
 
    const goToHome = () => {
      history.push("/");
    };
 
-   
+   const onSubmitForm = (event) =>{
+     event.preventDefault()
+     userApplication()
+     console.log(form.name);
+     console.log(form.age);
+     console.log(form.applicationText);
+     console.log(form.profession);
+     console.log(form.country);
+  
+   }
 
+   
+   const userApplication =(candidate) =>{
+     axios.post(
+       `https://us-central1-labenu-apis.cloudfunctions.net/labeX/joyce-dumont/trips/${id}/apply`, form)
+     .then((response)=>{
+       alert("Parabéns! Inscrição realizada com sucesso")
+       console.log("Passou pelo Then")
+     })
+     .catch((error)=>{
+       alert(error.message)
+       console.log("Caiu no erro")
+     })
+
+   }
 
   return (
     <DivContainer>
@@ -32,28 +70,49 @@ function ApplicationFormPage() {
         <ButtonHeader onClick={goToHome}>Voltar</ButtonHeader>
       </Header>
 
-      <H2Home>Cadastrar uma nova viagem</H2Home>
+      <H2Home>Inscreva-se para viajar conosco!</H2Home>
       <DivRegister>
-        <label>Nome:</label>
-        <input></input>
-        <label>Idade:</label>
-        <input></input>
-        <label>Por que você merece viajar com a Labe-X?:</label>
-        <InputForm></InputForm>
-        <label>Profissão</label>
-        <input></input>
-        <label>País</label>
-        <select>
-          <option>Selecione seu país de origem</option>
-          <option>Brasil</option>
-          <option>Costa Rica</option>
-          <option>Holanda</option>
-          <option>Cuba</option>
-          <option>Nigéria</option>
-          <option>França</option>
-        </select>
-
-        <RegisterButton>Enviar Inscrição</RegisterButton>
+        <form onSubmit={onSubmitForm}>
+          <label>Nome:</label>
+          <input
+            value={form.name}
+            onChange={onChangeInput}
+            name={"name"}
+            type="text"
+            pattern={"[A-Za-z ]{3,}"}
+            required
+          />
+          <label>Idade:</label>
+          <input
+            value={form.age}
+            onChange={onChangeInput}
+            name={"age"}
+            type="number"
+            min={18}
+            required
+          />
+          <label>Por que você merece viajar com a Labe-X?:</label>
+          <input
+            value={form.applicationText}
+            onChange={onChangeInput}
+            name={"applicationText"}
+            type="text"
+            pattern={"[A-Za-z ]{30,}"}
+            required
+          />
+          <label>Profissão</label>
+          <input
+            value={form.profession}
+            onChange={onChangeInput}
+            name={"profession"}
+            type="text"
+            pattern={"[A-Za-z ]{10,}"}
+            required
+          />
+          <label>País:</label>
+          <Countries onChangeInput={onChangeInput} country={form.country} />  
+          <RegisterButton>Enviar Inscrição</RegisterButton>
+        </form>
       </DivRegister>
     </DivContainer>
   );

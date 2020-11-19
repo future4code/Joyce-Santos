@@ -25,19 +25,21 @@ function TripDetailsPage() {
    const getCandidates = () => {
           axios
             .get(
-              `https://us-central1-labenu-apis.cloudfunctions.net/labeX/joyce-santos/trip/${id}`,
+              `https://us-central1-labenu-apis.cloudfunctions.net/labeX/joyce-dumont/trip/${id}`,
               {
                 headers: {
-                  Authentication: localStorage.getItem("token"),
+                  auth: localStorage.getItem("token"),
                 },
               }
             )
             .then((response) => {
               setTrip(response.data.trip.name);
               setApplication(response.data.trip.candidates);
+              console.log("Entrou no then")
             })
             .catch((error) => {
               console.log(error.message);
+              console.log("Caiu no erro de novo mano!")
             });
    };
 
@@ -50,11 +52,11 @@ function TripDetailsPage() {
          `https://us-central1-labenu-apis.cloudfunctions.net/labeX/joyce-dumont/trips/${id}/candidates/${candidateId}/decide/`,
          body,{
            headers:{
-             Authentication: localStorage.getItem("token")
+             auth: localStorage.getItem("token")
            }
          }
        )
-       .then(() => {
+       .then((response) => {
          alert("Parabéns! Você foi aprovado para viajar com a Labe-X");
        })
        .catch((error) => {
@@ -71,7 +73,7 @@ function TripDetailsPage() {
          body,
          {
            headers:{
-             Authentication: localStorage.getItem("token")
+             auth: localStorage.getItem("token")
            }
           })
        .then(() => {
@@ -99,21 +101,28 @@ function TripDetailsPage() {
       <div>
 
        {getCandidates.length === 0 ? (<p>Nenhum Candidato! :'( </p>) : getCandidates.map = (candidate) => {
-          return(
+          return (
             <div>
-              <ol>
-                  <li>
-                        <p>Nome do Candidato: {candidate.name}</p>
-                        <p>Idade:{candidate.age}</p>
-                        <p>Profissão: {candidate.profession}</p>
-                        <p>Texto de inscrição: {candidate.applicationText}</p>
-                        <p>País:{candidate.country}</p>
-                  </li>
-                        <Image img src={check} onClick={()=>aceptCandidate(candidate.id)} />
-                        <Image img src={cross} onClick={()=>rejectCandidate(candidate.id)} />
-                 
-              </ol> 
-            </div>)
+                  <p>
+                    Olá!, meu nome é {candidate.name}, tenho {candidate.age}{" "}
+                    anos e minha profissão é {candidate.profession}, e moro no{" "}
+                    {candidate.country} mereço participar das viagens com a
+                    Labe-X porquê {candidate.applicationText}
+                  </p>
+              
+                <Image
+                  img
+                  src={check}
+                  onClick={() => aceptCandidate(candidate.id)}
+                />
+                <Image
+                  img
+                  src={cross}
+                  onClick={() => rejectCandidate(candidate.id)}
+                />
+              
+            </div>
+          );
           }}
       </div>
     </DivContainer>
