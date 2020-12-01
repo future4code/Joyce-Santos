@@ -1,18 +1,17 @@
 import React from 'react';
-import LoginPage from './screens/login'
-import PostPage from './screens/post'
-import FeedPage from './screens/feed';
-import RegisterPage from './screens/register'
+import Router from './routers/router'
+import Header from './components/Header'
+
+
 
 
 
 function App() {
   return (
     <div>
-      <LoginPage />
-      <PostPage />
-      <FeedPage />
-      <RegisterPage />
+      <Header />
+      
+      <Router/>
     </div>
   );
 }
