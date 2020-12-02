@@ -2,9 +2,11 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import {  signUp } from "../constants/user";
 import { useForm } from "../hooks/useForm";
+import { useUnProtectPage } from "../hooks/useUnProtectPage";
 
 
 function RegisterPage() {
+  useUnProtectPage()
   const history = useHistory();
   const { form, onChange } = useForm({ email: "", password: "" , username: ""});
 

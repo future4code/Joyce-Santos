@@ -26,5 +26,26 @@ export const signUp = (body, history) => {
 
     .catch((error) => {
       console.log(error.message);
+    })
+}
+    
+export const createPosts = (body, history) => {
+  const token = localStorage.getItem("token");
+
+  axios
+    .post(`${baseUrl}/posts`, body, {
+      headers: {
+        Authorization: token,
+      },
+    })
+    .then((response) => {
+      alert("Post criado com sucesso!")
+      console.log(response);
+      goToFeed(history);
+    })
+    .catch((error) => {
+      alert("Erro ao criar post, tente novamente!");
+      console.log(error.message);
     });
 };
+

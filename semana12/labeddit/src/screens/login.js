@@ -4,10 +4,12 @@ import { login } from '../constants/user';
 import {goToSignUp} from '../routers/coordinator'
 import {useForm} from '../hooks/useForm'
 import {ButtonSignUp} from "../styled/styled"
+import { useUnProtectPage} from "../hooks/useUnProtectPage"
 
 
 
 function LoginPage() {
+  useUnProtectPage();
   const history = useHistory()
   const {form, onChange} = useForm({email: "", password: ""})
 
@@ -22,6 +24,8 @@ function LoginPage() {
     login(form, history)
 
   } 
+
+ 
 
 
   return (

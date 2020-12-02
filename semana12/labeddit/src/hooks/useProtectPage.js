@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useHistory } from "react-router-dom"
-import { goToFeed, goToLogin } from "../routers/coordinator"
+import {  goToLogin } from "../routers/coordinator"
 
 export const useProtectPage =()=>{
     const history = useHistory()
@@ -10,9 +10,6 @@ export const useProtectPage =()=>{
 
         if (!token){
             goToLogin(history)
-        }else{
-             goToFeed(history);
-
         }
            
 

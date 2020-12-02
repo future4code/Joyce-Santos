@@ -1,14 +1,15 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { HeaderH1, HeaderP } from "../styled/styled";
 
 
 function Header(){
 const history = useHistory()
 return (
-  <div>
-    <h1>LabEddit</h1>
-    <p>A sua melhor rede social!</p>
-  </div>
+  <>
+    <HeaderH1>LabEddit</HeaderH1>
+    <HeaderP>A sua melhor rede social!</HeaderP>
+  </>
 );
 }
 export default Header;

@@ -1,6 +1,6 @@
 import React from 'react'
 import LoginPage from "../screens/login";
-import PostPage from "../screens/post";
+import PostDetailPage from "../screens/detailPost";
 import FeedPage from "../screens/feed"
 import RegisterPage from "../screens/register";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -16,7 +16,7 @@ const Router = () => {
           </Route>
 
           <Route exact path={"/posts/:id"}>
-            <PostPage />
+            <PostDetailPage />
           </Route>
 
           <Route exact path={"/feed"}>
