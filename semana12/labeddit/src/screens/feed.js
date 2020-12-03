@@ -3,10 +3,10 @@ import { useHistory } from "react-router-dom";
 import { baseUrl } from "../constants/constants";
 import { useProtectPage } from "../hooks/useProtectPage";
 import { useRequestData } from "../hooks/useRequestData";
-import { CardPosts, CreatePostContainer } from "../styled/styled";
+import {  CreatePostContainer } from "../styled/styled";
 import { createPosts } from "../constants/user";
 import {useForm} from "../hooks/useForm"
-import { goToDetailsPosts } from "../routers/coordinator";
+import PostCard from "../components/postCard";
 
 function FeedPage() {
   const history = useHistory();
@@ -48,14 +48,15 @@ function FeedPage() {
       </CreatePostContainer>
       {posts.map((post) => {
         return (
-          <CardPosts key={post.id}>
-            <h2>{post.title}</h2>
-            <h4>{post.username}</h4>
-            <p>{post.text}</p>
-            <p>{post.userVoteDirection}</p>
-            <p>{post.votesCount}</p>
-            <button onClick={() => {goToDetailsPosts(history)}}>Detalhes do Post</button>
-          </CardPosts>
+          <PostCard
+            id={post.id}
+            title={post.title}
+            username={post.username}
+            text={post.text}
+            commentsCount={post.commentsCount}
+            votesCount={post.votesCount}
+            direction={post.userVoteDirection}
+          />
         );
       })}
     </div>

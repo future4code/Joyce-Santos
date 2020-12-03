@@ -19,7 +19,7 @@ export const useRequestData = (url, initialState) => {
       .catch((error) => {
         console.log(error.message);
       });
-  }, [url]);
+  }, [url])
 
   return data;
 };
