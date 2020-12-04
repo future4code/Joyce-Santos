@@ -1,5 +1,6 @@
 import React from "react";
 import { voteComment } from "../constants/user";
+import { ButtonsCards, CardComments } from "../styled/styled";
 
 const CommentCard = (props) => {
   const handleVote = (decision) => {
@@ -10,13 +11,13 @@ const CommentCard = (props) => {
   };
 
   return (
-    <div>
-      <p>Votos: {props.votesCount}</p>
+    <CardComments>
       <p>{props.username}</p>
       <p>{props.text}</p>
-      <button onClick={() => handleVote(1)}>Like</button>
-      <button onClick={() => handleVote(-1)}>Dislike</button>
-    </div>
+      <p>Votos: {props.votesCount}</p>
+      <ButtonsCards onClick={() => handleVote(1)}>Like</ButtonsCards>
+      <ButtonsCards onClick={() => handleVote(-1)}>Dislike</ButtonsCards>
+    </CardComments>
   );
 };
 

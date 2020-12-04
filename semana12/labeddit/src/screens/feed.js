@@ -3,10 +3,12 @@ import { useHistory } from "react-router-dom";
 import { baseUrl } from "../constants/constants";
 import { useProtectPage } from "../hooks/useProtectPage";
 import { useRequestData } from "../hooks/useRequestData";
-import {  CreatePostContainer } from "../styled/styled";
+import { CreatePostContainer, Buttons } from "../styled/styled";
 import { createPosts } from "../constants/user";
 import {useForm} from "../hooks/useForm"
 import PostCard from "../components/postCard";
+import { goToLogin } from "../routers/coordinator";
+import { ButtonLogout } from "../styled/styled";
 
 function FeedPage() {
   const history = useHistory();
@@ -26,8 +28,14 @@ function FeedPage() {
     createPosts(form, history);
   };
 
+  const logout = (history) => {
+    localStorage.removeItem("token");
+    goToLogin(history);
+  };
+
   return (
     <div>
+      <ButtonLogout onClick={() => logout(history)}> Logout </ButtonLogout>
       <CreatePostContainer>
         <form onSubmit={handleSubmit}>
           <input
@@ -43,7 +51,7 @@ function FeedPage() {
             onChange={handleInputChange}
             placeholder={"Texto do Post"}
           ></input>
-          <button type={"submit"}>Postar</button>
+          <Buttons type={"submit"}>Postar</Buttons>
         </form>
       </CreatePostContainer>
       {posts.map((post) => {

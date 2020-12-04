@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { goToDetailsPosts } from "../routers/coordinator";
-import { CardPosts } from "../styled/styled";
+import { CardPosts, Buttons } from "../styled/styled";
 import { votePost } from "../constants/user";
 
 function PostCard(props) {
@@ -19,7 +19,7 @@ const like = () => {
   if (props.direction === 0) {
     return (
       <div>
-        <button onClick={() => handleVote(1)}>Votar</button>
+        <Buttons onClick={() => handleVote(1)}>Votar</Buttons>
         <p>Votos: {props.votesCount}</p>
         
       </div>
@@ -27,14 +27,14 @@ const like = () => {
   } else if (props.direction === 1) {
     return (
       <div>
-        <button onClick={() => handleVote(0)}>Votar</button>
+        <Buttons onClick={() => handleVote(0)}>Votar</Buttons>
         <p>Votos: {props.votesCount}</p>
         
       </div>
     );
   } else {
     <div>
-      <button onClick={() => handleVote(1)}>Votar</button>
+      <Buttons onClick={() => handleVote(1)}>Votar</Buttons>
       <p>Votos: {props.votesCount}</p>
       
     </div>;
@@ -44,14 +44,14 @@ const like = () => {
   return (
     <CardPosts>
       <h3>{props.username}</h3>
-      <h1> {props.title}</h1>
+      <h3> {props.title}</h3>
       <p> {props.text} </p>
        {like()} 
       <p> {props.commentsCount} Comentários </p>
 
-      <button onClick={() => goToDetailsPosts(history, props.id)}>
+      <Buttons onClick={() => goToDetailsPosts(history, props.id)}>
         Detalhes do Post
-      </button>
+      </Buttons>
     </CardPosts>
   );
 }

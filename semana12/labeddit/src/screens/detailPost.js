@@ -6,7 +6,7 @@ import CommentCard from "../components/commentCard";
 import { baseUrl } from "../constants/constants";
 import { useProtectPage } from "../hooks/useProtectPage";
 import { goToFeed } from "../routers/coordinator";
-import { CreatePostContainer } from "../styled/styled";
+import { CreatePostContainer, Buttons } from "../styled/styled";
 
 function PostDetailPage() {
   const history = useHistory();
@@ -36,7 +36,7 @@ function PostDetailPage() {
 
   return (
     <CreatePostContainer>
-      <button onClick={() => goToFeed(history)}> Voltar pro Feed </button>
+      <Buttons onClick={() => goToFeed(history)}> Voltar pro Feed </Buttons>
       <div>
         <div>
           <div>

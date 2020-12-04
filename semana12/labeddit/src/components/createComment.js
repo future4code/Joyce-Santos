@@ -1,6 +1,7 @@
 import React from "react"
 import { useForm } from "../hooks/useForm"
 import {createComments} from "../constants/user"
+import {Buttons} from "../styled/styled"
 
 function CreateComment(props){
     const {form, onChange, resetForm} = useForm({text: ""})
@@ -27,7 +28,7 @@ function CreateComment(props){
             value={form.text}
             name="text"
           ></input>
-          <button>Comentar</button>
+          <Buttons>Comentar</Buttons>
         </form>
       </div>
     );

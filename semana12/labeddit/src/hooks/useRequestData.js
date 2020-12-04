@@ -1,5 +1,5 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export const useRequestData = (url, initialState) => {
   const [data, setData] = useState(initialState);
@@ -19,7 +19,7 @@ export const useRequestData = (url, initialState) => {
       .catch((error) => {
         console.log(error.message);
       });
-  }, [url])
+  }, [url]);
 
   return data;
 };

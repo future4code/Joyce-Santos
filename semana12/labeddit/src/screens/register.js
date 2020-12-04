@@ -1,14 +1,15 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import {  signUp } from "../constants/user";
+import { signUp } from "../constants/user";
 import { useForm } from "../hooks/useForm";
 import { useUnProtectPage } from "../hooks/useUnProtectPage";
-
+import { goToLogin } from "../routers/coordinator";
+import { Buttons, CardRegister, InfoLabel } from "../styled/styled";
 
 function RegisterPage() {
-  useUnProtectPage()
+  useUnProtectPage();
   const history = useHistory();
-  const { form, onChange } = useForm({ email: "", password: "" , username: ""});
+  const { form, onChange } = useForm({ email: "", password: "", username: "" });
 
   const handleInputChange = (event) => {
     const { value, name } = event.target;
@@ -22,8 +23,10 @@ function RegisterPage() {
   };
 
   return (
-    <div>
+    <CardRegister>
+      <Buttons onClick={() => goToLogin(history)}> Voltar pro Login</Buttons>
       <form onSubmit={handleSubmit}>
+        <InfoLabel>Nome: </InfoLabel>
         <input
           type="text"
           placeholder="Nome"
@@ -32,6 +35,7 @@ function RegisterPage() {
           onChange={handleInputChange}
         />
 
+        <InfoLabel>E-mail: </InfoLabel>
         <input
           placeholder="E-mail"
           type="email"
@@ -40,6 +44,7 @@ function RegisterPage() {
           onChange={handleInputChange}
         />
 
+        <InfoLabel>Senha: </InfoLabel>
         <input
           type="password"
           placeholder="Senha"
@@ -48,9 +53,9 @@ function RegisterPage() {
           onChange={handleInputChange}
         />
 
-        <button> Login </button>
+        <Buttons> Login </Buttons>
       </form>
-    </div>
+    </CardRegister>
   );
 }
 

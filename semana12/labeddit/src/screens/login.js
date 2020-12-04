@@ -1,9 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { login } from '../constants/user';
+import { login, logout } from '../constants/user';
 import {goToSignUp} from '../routers/coordinator'
 import {useForm} from '../hooks/useForm'
-import {ButtonSignUp} from "../styled/styled"
+import { ButtonSignUp, Buttons, CardLogin } from "../styled/styled";
 import { useUnProtectPage} from "../hooks/useUnProtectPage"
 
 
@@ -22,14 +22,16 @@ function LoginPage() {
   const handleSubmit = (event) =>{
     event.preventDefault()
     login(form, history)
-
+    
   } 
+
+  
 
  
 
 
   return (
-    <div>
+    <CardLogin>
       <form onSubmit={handleSubmit}>
         <input
           placeholder="E-mail"
@@ -47,14 +49,15 @@ function LoginPage() {
           onChange={handleInputChange}
         />
 
-        <button> Login </button>
+        <Buttons> Login </Buttons>
+        
       </form>
 
       <ButtonSignUp onClick={() => goToSignUp(history)}>
         {" "}
         Ainda não faz parte do LabEddit? Cadastre-se!
       </ButtonSignUp>
-    </div>
+    </CardLogin>
   );
 }
 

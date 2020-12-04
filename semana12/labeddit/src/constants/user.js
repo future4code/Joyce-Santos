@@ -1,6 +1,7 @@
 import axios from "axios";
 import { baseUrl } from "../constants/constants";
-import { goToFeed } from "../routers/coordinator";
+import { goToFeed} from "../routers/coordinator";
+
 
 export const login = (body, history) => {
   axios
@@ -14,6 +15,7 @@ export const login = (body, history) => {
       console.log(error.message);
     });
 };
+
 
 export const signUp = (body, history) => {
   axios
