@@ -31,12 +31,12 @@ const ListaDePosts: posts[] = [
 // b) Observe abaixo a função buscarPostsPorAutor(), escrita em JavasScript:
 // Quais são as entradas e saídas dessa função? Copie a função para o mesmo arquivo .ts do array de posts e faça a tipagem necessária.
 
-// function buscarPostsPorAutor(posts, autorInformado) {
-//   return posts.filter(
-//     (post) => {
-//       return post.autor === autorInformado
-//     }
-//   )
-// }
+function buscarPostsPorAutor(posts: posts[], autorInformado: string) {
+  return posts.filter(
+    (post) => {
+      return post.autor === autorInformado
+    }
+  )
+}
 
 
