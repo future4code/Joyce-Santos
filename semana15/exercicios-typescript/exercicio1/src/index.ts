@@ -47,7 +47,7 @@ type person = {
 
 
 
-const pessoa = {
+const pessoa: person = {
     name: "Miya",
     age: 21,
     favoriteColor: color.CIANO,
