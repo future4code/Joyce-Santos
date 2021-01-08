@@ -153,6 +153,40 @@ app.put("/depositos/:id", (req: Request, res: Response) =>{
 
 } )
 
+app.get("/usuarios/search", (req: Request, res: Response) => {
+    let errorCode = 400;
+
+    try {
+        const cpf: string = req.query.cpf as string;
+
+        if(!cpf){
+            errorCode = 422;
+            throw new Error("CPF não encontrado.");
+            
+        }
+
+        const searchCpf = users.filter((user: user) => user.cpf === cpf);
+
+        if(!searchCpf){
+            errorCode = 404;
+            throw new Error("CPF não encontrado");    
+        }
+
+        const result = users.map(user => ({
+            balance: user.balance
+        }))
+        res.status(200).send(result)
+        
+    } catch (error) {
+
+     res.status(errorCode).send(error.message);
+        
+    }
+
+
+})
+
+
 
 
 
