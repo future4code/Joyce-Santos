@@ -13,26 +13,32 @@ type user = {
     name: string,
     cpf:number,
     birthdate: number,
-    balance: number
+    balance: number,
+    transactions: transactions
 }
 
-type extract = {
+type transactions = {
     value: number,
     date: number,
     description: string
 
 }
 
-let users: user[] = [
-    {
-        id: 1,
-        name: "Miya",
-        cpf: 12345678900,
-        birthdate: 14051998,
-        balance: 5000
 
-    }
-]
+let users: user[] = [
+  {
+    id: 1,
+    name: "Miya",
+    cpf: 12345678900,
+    birthdate: 14051998,
+    balance: 5000,
+    transactions: {
+      value: 100,
+      date: 18122020,
+      description: "Compra de flechas novas.S",
+    },
+  },
+];
 
 app.post("/novaconta", (req: Request, res: Response)=>{
     let errorCode = 400;
@@ -43,7 +49,8 @@ app.post("/novaconta", (req: Request, res: Response)=>{
             name: req.body.name,
             cpf: req.body.cpf,
             birthdate: req.body.birthdate,
-            balance: req.body.balance
+            balance: req.body.balance,
+            transactions: req.body.transactions
         }
 
         // if(newAccount.cpf === users.cpf){
@@ -75,6 +82,7 @@ app.get("/usuarios", (req: Request, res: Response) => {
     cpf: user.cpf,
     birthdate: user.birthdate,
     balance: user.balance,
+    transactions: req.body.transactions
   }));
 
   res.status(200).send(result);
