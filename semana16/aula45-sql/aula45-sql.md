@@ -15,29 +15,28 @@ ALTER TABLE Actor CHANGE gender gender VARCHAR(100);
 EXERCÍCIO - 2
 
 a. Escreva uma query que atualize o nome e a data de nascimento do ator com o id 003
-```UPDATE Actor ```
-```SET name = "Moacyr Franco", ```
-```birth_date = "1936-10-05" ```
-```WHERE id = "003";```
+```UPDATE Actor
+SET name = "Moacyr Franco", 
+birth_date = "1936-10-05" 
+WHERE id = "003";```
 
 b. Escreva uma query que atualize o nome da atriz Juliana Paes para JULIANA PÃES. Então, escreva outra query para voltar ao nome anterior.
 
-```UPDATE Actor```
-```SET name = "JULIANA PÃES"```
-```WHERE name = "Juliana Paes";```
+```UPDATE Actor
+SET name = "JULIANA PÃES"
+WHERE name = "Juliana Paes";
 
-```UPDATE Actor```
-```SET name = "Juliana Paes"```
-```WHERE name = "JULIANA PÃES";```
+```UPDATE Actor
+SET name = "Juliana Paes"
+WHERE name = "JULIANA PÃES";```
 
 c. Escreva uma query que atualize todas as informações do ator com o id 005.
 
-```UPDATE Actor```
-```SET ```
-```name = "Moacyr Franco",```
-```birth_date = "2020-02-10",```
-``` gender = "male"```
-```WHERE id = "005";```
+```UPDATE Actor
+SET 
+name = "Moacyr Franco",
+birth_date = "2020-02-10",
+WHERE id = "005";```
 
 d. Escreva uma query em que você tente atualizar um dado da tabela que não existe (com um id inválido, por exemplo). Teste, anote e explique o resultado. 
 
@@ -68,29 +67,29 @@ d. Escreva uma query que pegue a soma de todos os salários.
 EXERCÍCIO - 5
 
 a. Releia a última query. Teste-a. Explique o resultado com as suas palavras.
-```SELECT COUNT(*), gender```
-```FROM Actor```
-```GROUP BY gender```
+```SELECT COUNT(*), gender
+FROM Actor
+GROUP BY gender```
 
 A query faz uma contagem do numero total de atores por gênero e os separa em grupos de acordo com o seu gênero.
 
 b. Faça uma query que retorne somente o id e o nome dos atores em ordem decrescente alfabética.
-```SELECT id, name FROM Actor```
-```ORDER BY name DESC;```
+```SELECT id, name FROM Actor
+ORDER BY name DESC;```
 
 c. Faça uma query que retorne todos os atores ordenados pelo salário.
-```SELECT * FROM Actor```
-```ORDER BY salary;```
+```SELECT * FROM Actor
+ORDER BY salary;```
 
 d. Faça uma query que retorne os atores com os três maiores salarios.
-```SELECT * FROM Actor```
-```ORDER BY salary DESC```
-```LIMIT 3;```
+```SELECT * FROM Actor
+ORDER BY salary DESC
+LIMIT 3;```
 
 
 e. Faça uma query que retorne a média de salário por gênero.
-```SELECT AVG(salary), gender FROM Actor```
-```GROUP BY gender;```
+```SELECT AVG(salary), gender FROM Actor
+GROUP BY gender;```
 
 EXERCÍCIO - 6
 
@@ -107,13 +106,13 @@ c. Atualize dois filmes de tal forma que tenhamos um que ainda esteja em cartaz 
 
 c. Atualize dois filmes de tal forma que tenhamos um que ainda esteja em cartaz e um que já tenha saído.
 
-```UPDATE Movies```
-```SET playing_limit_date = "2017-12-18"```
-```WHERE id = "002";```
+```UPDATE Movies
+SET playing_limit_date = "2017-12-18"
+WHERE id = "002";```
 
-```UPDATE Movies```
-```SET playing_limit_date = "2021-05-12"```
-```WHERE id = "003";```
+```UPDATE Movies
+SET playing_limit_date = "2021-05-12"
+WHERE id = "003";```
 
 d. Delete algum dos filmes, mas guarde o id. Tente fazer uma query para atualizar a sinopse desse filme que você acabou de deletar (usando o mesmo id). Anote o resultado e explique.
 ```DELETE FROM Movies WHERE id = "001"```
@@ -157,12 +156,12 @@ b. Retorne os 5 primerios filmes em ordem descrente alfabética.
 ```SELECT * FROM Movies ORDER BY title LIMIT 5;```
 
 c. Retorne os 3 filmes mais recentes em cartaz.
-```SELECT * FROM Movies ```
-```WHERE release_date < CURDATE() ```
-```ORDER BY release_date DESC ```
-```LIMIT 3;```
+```SELECT * FROM Movies 
+WHERE release_date < CURDATE()
+ORDER BY release_date DESC
+LIMIT 3;```
 
 d. Retorne os 3 filmes melhor avalidos.
-```SELECT * FROM Movies``` 
-```ORDER BY rating DESC``` 
-```LIMIT 3;```
+```SELECT * FROM Movies 
+ORDER BY rating DESC
+LIMIT 3;```
