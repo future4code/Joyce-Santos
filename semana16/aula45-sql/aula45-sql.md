@@ -98,7 +98,7 @@ a. Altere a tabela de Movie e adicione um novo parâmetro: playing_limit_date qu
 ```ALTER TABLE Movies ADD playing_limit_date DATE;```
 
 b. Altere a tabela de Movie para que o parâmetro rating possa aceitar valores não inteiros, como, por exemplo, uma avaliação 8.5.
-ALTER TABLE Movies CHANGE rating rating FLOAT;
+```ALTER TABLE Movies CHANGE rating rating FLOAT;```
 
 c. Atualize dois filmes de tal forma que tenhamos um que ainda esteja em cartaz e um que já tenha saído.
 ```UPDATE Movies SET playing_limit_date = "2020-12-31" WHERE id = "001";```
@@ -131,6 +131,38 @@ RESPOSTA: 9
 
 
 c. Qual a quantidade de filmes em cartaz?
+```SELECT COUNT(*) FROM Movies WHERE playing_limit_date > CURDATE();```
+RESPOSTA: 2
+
 d. Qual a quantidade de filmes que ainda irão lançar?
-e. Qual a maior nota dos filmes??
+```SELECT COUNT(*) FROM Movies WHERE release_date > CURDATE();```
+RESPOSTA: 0
+
+
 e. Qual a maior nota dos filmes?
+```SELECT MAX(rating) FROM Movies;```
+RESPOSTA: 10
+
+
+f. Qual a menor nota dos filmes?
+```SELECT MIN(rating) FROM Movies;```
+RESPOSTA: 8
+
+EXERCÍCIO - 8
+
+a. Retorne todos os filmes em ordem alfabética.
+```SELECT * FROM Movies ORDER BY title;```
+
+b. Retorne os 5 primerios filmes em ordem descrente alfabética.
+```SELECT * FROM Movies ORDER BY title LIMIT 5;```
+
+c. Retorne os 3 filmes mais recentes em cartaz.
+```SELECT * FROM Movies ```
+```WHERE release_date < CURDATE() ```
+```ORDER BY release_date DESC ```
+```LIMIT 3;```
+
+d. Retorne os 3 filmes melhor avalidos.
+```SELECT * FROM Movies``` 
+```ORDER BY rating DESC``` 
+```LIMIT 3;```
