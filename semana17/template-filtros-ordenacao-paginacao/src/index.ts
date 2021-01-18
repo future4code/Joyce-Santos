@@ -6,6 +6,8 @@ import { AddressInfo } from "net";
 import { getUserByName } from "./endpoints/getUserByName";
 import { getUserByType } from "./endpoints/getUserByType";
 import { getAllUsersByNameOrType } from "./endpoints/getByNameOrType";
+import { getUsersByLimit } from "./endpoints/getUserByLimit";
+import { getUsersByFilters } from "./endpoints/getAllUsersByFilter";
 
 
 dotenv.config();
@@ -35,6 +37,14 @@ app.get("/users/search/:type", getUserByType);
 
 //EXERCÍCIO 2: Faça uma cópia do endpoint original, e adicione a ele a funcionalidade de ordenação que possa receber nome ou tipo de user.
 app.get("/users/all/:orderBy", getAllUsersByNameOrType);
+
+//EXERCÍCIO 3: Gere uma cópia do endpoint original, e faça com que ele exiba apenas 5 users por vez.
+app.get("/users/all/:page", getUsersByLimit);
+
+//EXERCÍCIO 4
+
+app.get("/users/filter", getUsersByFilters);
+
 
 
 
