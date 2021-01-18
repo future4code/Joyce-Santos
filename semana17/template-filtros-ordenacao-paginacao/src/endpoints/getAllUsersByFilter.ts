@@ -8,7 +8,7 @@ export const getUsersByFilters = async (
   try {
     const userName = req.query.name as string;
     const type = req.query.type as string;
-    const orderBy = req.query.orderBy as string;
+    const orderBy = req.query.orderBy as string || 'name';
     const limit = req.query.limit as string;
     const offset = req.query.offset as string;
     const users = await selectAllUsersByFilters(
