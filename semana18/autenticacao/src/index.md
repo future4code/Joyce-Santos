@@ -130,3 +130,84 @@ export const getUserByEmail = async (
     return result[0]
 }
 ```
+
+### EXERCÍCIO 6
+
+a. Crie o endpoint que realize isso, com as funções que você implementou anteriormente.
+b. Altere o seu endpoint para ele não aceitar um email vazio ou que não possua um "@"
+```typescript
+export async function login(req: Request, res: Response) {
+  try {
+      if(!req.body.email || req.body.email.indexOf("@") === -1){
+      throw new Error("Usuário não encontrado, por favor ferifique.");
+      } 
+   const userData = {
+       email: req.body.email,
+       password: req.body.password
+   }
+
+   const user = await selectUserByEmail(userData.email);
+   if(user.password !== userData.password){
+       throw new Error("Senha incorreta."); 
+   }
+
+   const id = generateId();
+
+   const token = generateToken({id})
+      
+   res.status(200).send({token})
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+}
+```
+
+### EXERCÍCIO 7
+
+a. O que a linha as any faz? Por que precisamos usá-la ali?
+RES: Eu não consegui identificar o porque do as any ali no código. 
+
+b. Crie uma função que realize a mesma funcionalidade da função acima.
+```typescript
+export const getData = (token: string): AuthenticationData => {
+  const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
+  const result = {
+    id: payload.id,
+  };
+  return result;
+};
+```
+### EXERCÍCIO 8
+
+a. Comece criando uma função no data que retorne o usuário a partir do id
+```typescript
+const userTableName = "user";
+
+export async function selectUserById(id: string): Promise<any> {
+
+    const result = await connection.raw(`
+    SELECT * FROM ${userTableName}
+    WHERE ${id}
+    `)
+    return result[0];
+  }
+  ```
+
+  b. Crie o endpoint com as especificações passadas
+  ```typescript
+  export async function getUserById(req: Request, res: Response): Promise<void> {
+  try {
+    const token: string = req.headers.authorization!;
+
+    const authenticationData = getData(token);
+
+    const user = await selectUserById(authenticationData.id);
+
+    res.status(200).send({id: user.id, email: user.email
+    });
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+}
+```
+

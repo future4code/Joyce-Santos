@@ -2,13 +2,11 @@ import {connection} from "../index"
 
 const userTableName = "user";
 
-export const selectUserByEmail = async (
-    email: string
-): Promise<any> =>{
+export async function selectUserById(id: string): Promise<any> {
+
     const result = await connection.raw(`
     SELECT * FROM ${userTableName}
-    WHERE (${email})
+    WHERE ${id}
     `)
-    return result[0]
-
-}
+    return result[0];
+  }

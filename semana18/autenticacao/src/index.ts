@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { AddressInfo } from "net";
 import { postUser } from "./endpoints/postCreateUser";
+import { postLogin } from "./endpoints/postLogin";
+import {getUserById} from "./endpoints/getUserById"
 
 dotenv.config();
 
@@ -24,6 +26,8 @@ app.use(express.json());
 app.use(cors());
 
 app.post("/signup", postUser);
+app.post("/login", postLogin)
+app.get("/user/profile", getUserById)
 
 const server = app.listen(process.env.PORT || 3000, () => {
   if (server) {
