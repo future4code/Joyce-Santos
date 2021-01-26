@@ -1,3 +1,4 @@
+import { compare } from "bcryptjs";
 import { Request, Response } from "express";
 import { selectUserByEmail } from "../data/selectUserByEmail";
 import { generateId } from "../util/generateId";
@@ -21,9 +22,21 @@ export async function postLogin(req: Request, res: Response) {
     if (!user) {
       throw new Error("Usuário não encontrado.");
     }
-    // const id = generateId();
 
-    const token = generateToken({ id: user.id });
+    const compareResult = await compare(
+        userData.password,
+        user.password
+    );
+
+    if(!compareResult){
+        throw new Error("Senha inválida.");
+        
+    }
+    const token = generateToken({
+        id: user.id,
+        role: user.role
+    })
+   
 
     res.status(200).send({ token });
   } catch (error) {

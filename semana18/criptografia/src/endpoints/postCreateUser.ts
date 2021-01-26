@@ -1,6 +1,6 @@
-import { hash } from "bcryptjs";
+import { hash } from "../util/generateHash";
 import { Request, Response } from "express";
-import { createUser } from "../data/createUser"
+import { createUser } from "../data/createUser";
 import { generateId } from "../util/generateId";
 import { generateToken } from "../util/generateToken";
 
@@ -16,13 +16,18 @@ export async function postUser(req: Request, res: Response) {
     const userData = {
       email: req.body.email,
       password: req.body.password,
+      role: req.body.role,
     };
+
+    if(req.body.role === "undefined"){
+      req.body.role = "normal"
+    }
 
     const id = generateId();
 
-    const cryptedPassword = await hash (userData.password);
+    const hashPassword = await hash(userData.password);
 
-    await createUser(id, userData.email, cryptedPassword);
+    await createUser(id, userData.email, hashPassword, userData.role);
 
     const token = generateToken({
       id: id,

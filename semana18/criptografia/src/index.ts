@@ -6,6 +6,8 @@ import { AddressInfo } from "net";
 import { postUser } from "./endpoints/postCreateUser";
 import { postLogin } from "./endpoints/postLogin";
 import { getUserById } from "./endpoints/getUserById";
+import { deleteUser } from "./endpoints/deleteUserById";
+import { getUserAll } from "./endpoints/getUserAll";
 
 dotenv.config();
 
@@ -28,6 +30,8 @@ app.use(cors());
 app.post("/signup", postUser);
 app.post("/login", postLogin);
 app.get("/user/profile", getUserById);
+app.delete("/user/:id", deleteUser);
+app.get("/user", getUserAll)
 
 const server = app.listen(process.env.PORT || 3000, () => {
   if (server) {

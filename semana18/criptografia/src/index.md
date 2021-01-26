@@ -9,4 +9,12 @@ a. Para realizar os testes corretamente, qual deles você deve modificar primeir
 RES: Devemos primeiro começar pela construção do cadastro com a senha criptografada, pois no login será a base de comparação.
 
 d. No exercício de ontem, nós criamos o endpoint user/profile. Também temos que modificar esse endpoint devido à adição da criptografia? Justifique.
-RES: Não, por que o token é o resultado do login e é conferido no header.
+RES: Não, pois o token vem como resposta do endpoint de login.
+
+### EXERCÍCIO 3
+
+```sql
+ALTER TABLE user 
+ADD COLUMN role VARCHAR(255) 
+DEFAULT "normal" 
+```
