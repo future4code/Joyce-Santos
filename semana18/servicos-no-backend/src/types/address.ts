@@ -1,5 +1,5 @@
 export type address = {
-  name: string,
+  street: string,
   neighborhood: string,
   city: string,
   state: string
@@ -7,7 +7,7 @@ export type address = {
 
 export type userAddress = {
   id: string,
-  name: string,
+  street: string,
   number: number,
   neighborhood: string,
   complement?: string,

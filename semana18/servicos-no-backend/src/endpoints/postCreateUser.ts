@@ -38,7 +38,7 @@ export async function postUser(req: Request, res: Response) {
 
     const newAddress: userAddress = {
       id: idAddress,
-      name: addressInfo.name,
+      street: addressInfo.street,
       number: userData.number,
       neighborhood: addressInfo.neighborhood,
       complement: userData.complement,

@@ -3,9 +3,10 @@ import { userAddress } from "../types/address";
 
 const addressTableName = "address";
 
-export const createUserAddress = async (newAddress: userAddress): Promise<void> => {
-  await connection.raw(`
-    INSERT ${newAddress} INTO ${addressTableName}
-    `);
+export const createUserAddress = async (newAddress: userAddress) => {
+  await connection((`${addressTableName}`))
+  .insert(newAddress);
 
+
+  
 };
