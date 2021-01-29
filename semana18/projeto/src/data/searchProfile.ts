@@ -2,7 +2,7 @@ import { connection } from ".."
 
 const userTableName = "newUser"
 
-export const searchProfile = async (id: string): Promise<any>=>{
+export const getUserById = async (id: string): Promise<any>=>{
 
     const result = await connection
     .select("id", "name", "email")

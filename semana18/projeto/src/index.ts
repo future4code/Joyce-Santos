@@ -3,9 +3,12 @@ import cors from 'cors'
 import knex from "knex"
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
-import { signup } from './endpoints/postCreateUser';
+import { signup } from './endpoints/signup';
 import { login } from './endpoints/postLoginUser';
 import { getProfileByToken } from './endpoints/getProfile';
+import { postRecipe } from './endpoints/postCreateRecipe';
+import { getRecipe } from './endpoints/getRecipe';
+import { getOtherUserProfile } from './endpoints/getOtherUseProfile';
 
 const app: Express = express();
 
@@ -27,6 +30,9 @@ export const connection = knex({
 app.post("/signup", signup)
 app.post("/login", login)
 app.get("/user/profile", getProfileByToken)
+app.post("/recipes", postRecipe)
+app.get("/recipes/:id", getRecipe)
+app.get("/user/:id", getOtherUserProfile)
 
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {

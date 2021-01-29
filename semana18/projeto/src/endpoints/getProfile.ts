@@ -1,14 +1,22 @@
 import { Request, Response } from "express";
 import { getData } from "../services/generateToken";
-import { searchProfile } from "../data/searchProfile";
+import { getUserById } from "../data/searchProfile";
 
 export async function getProfileByToken(req: Request, res: Response) {
+  let errorCode = 400;
+
   try {
     const token = req.headers.authorization as string;
 
-    const AuthenticationData = getData(token)
+    const authenticationData = getData(token)
 
-    const user = await searchProfile(AuthenticationData.id)
+    const user = await getUserById(authenticationData.id)
+
+    if(!user){
+      errorCode = 401;
+      throw new Error("Usuário não autorizado!");
+      
+    }
 
     res.status(200).send({
         id: user.id,

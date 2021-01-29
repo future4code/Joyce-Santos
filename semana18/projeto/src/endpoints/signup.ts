@@ -6,7 +6,9 @@ import { generateToken } from "../services/generateToken";
 import { USER_ROLES } from "../types/user";
 
 export async function signup(req: Request, res: Response) {
-    try {
+   let errorCode = 400;
+  
+  try {
 
         const id = generateId();
         
@@ -17,14 +19,21 @@ export async function signup(req: Request, res: Response) {
           !req.body.role
         ) {
           throw new Error(
-            'Preencha os campos "name","nickname", "password", "role" e "email"'
+            'Preencha todas as informações.'
           );
+        }
+
+        if(req.body.password < 6){
+          errorCode = 401;
+          throw new Error("A senha deve conter no mínimo 6 caracteres.");
+          
         }
 
         if (
           req.body.role !== USER_ROLES.ADMIN &&
           req.body.role !== USER_ROLES.NORMAL
         ) {
+          errorCode = 401;
           throw new Error(`"role" deve ser "NORMAL" ou "ADMIN"`);
         };
 
@@ -39,7 +48,7 @@ export async function signup(req: Request, res: Response) {
             name: req.body.name,
             email: req.body.email,
             password: hashPassword,
-            role: req.body.role
+            role: req.body.role || "normal"
         };
 
         await createUser(userData);
