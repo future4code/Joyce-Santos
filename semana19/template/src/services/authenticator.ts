@@ -1,13 +1,13 @@
 import * as jwt from "jsonwebtoken"
-import { ROLES } from "../business/entities/user"
+import { authenticationData, ROLES } from "../business/entities/user"
+import dotenv from "dotenv"
 
-export type AuthenticationData = {
-   id: string,
-   role: ROLES
-}
+
+dotenv.config();
+
 
 export function generateToken(
-   payload: AuthenticationData
+   payload: authenticationData
 ): string {
    return jwt.sign(
       payload,
@@ -18,12 +18,15 @@ export function generateToken(
    )
 }
 
-export function getTokenData(
-   token: string
-): AuthenticationData {
-   return jwt.verify(
-      token,
-      process.env.JWT_KEY as string
-   ) as AuthenticationData
+
+
+export function getTokenData(token: string): authenticationData {
+  const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
+  const result = {
+    id: payload.id,
+    role: payload.role,
+  };
+
+  return result;
 }
 

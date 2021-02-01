@@ -1,9 +1,9 @@
-import { request } from "express";
-import { createUser } from "../data/userDataBase";
-import { generateToken } from "../services/authenticator";
+import { compare } from "bcryptjs";
+import { createUser, deleteUser, getAllUsers, getUserById, selectUserByEmail } from "../data/userDataBase";
+import { generateToken, getTokenData } from "../services/authenticator";
 import { hash } from "../services/hashManager";
 import { generateId } from "../services/idGenerator";
-import { ROLES } from "./entities/user";
+import { authenticationData, ROLES, user } from "./entities/user";
 
 export const businessSignup = async (
   name: string,
@@ -11,16 +11,15 @@ export const businessSignup = async (
   password: string,
   role: ROLES
 ) => {
-
-  let statusCode = 400;
+  let errorCode = 400;
 
   if (!email || email.indexOf("@") === -1) {
-    statusCode = 422;
+    errorCode = 422;
     throw new Error("E-mail inválido");
   }
 
   if (!password || password.length < 6) {
-    statusCode = 422;
+    errorCode = 422;
     throw new Error("Senha inválida");
   }
 
@@ -36,3 +35,68 @@ export const businessSignup = async (
 
   return token;
 };
+
+export const businessLogin = async (email: string, password: string) => {
+  let errorCode = 400;
+  
+
+  const user: user = await selectUserByEmail(email);
+
+  if (!user.email || !user.password) {
+    errorCode = 422;
+    throw new Error("Por favor, ferifique seus dados.");
+  }
+
+  if (!email || email.indexOf("@") === -1) {
+    errorCode = 422;
+    throw new Error("Insira um e-mail válido.");
+  }
+
+  if(!user){
+      errorCode = 404
+      throw new Error("Usuário não encontrado");
+      
+  }
+
+  const compareResult = await compare(password, user.password);
+
+  if (!compareResult) {
+    throw new Error("Senha incorreta.");
+  }
+
+  const id: string = user.id;
+  const token = generateToken({
+    id,
+    role: user.role,
+  });
+
+  return token;
+};
+
+
+export const businessAllUsers = async (id: string) =>{
+    let errorCode = 400;
+
+    const user: user = await getUserById(id)
+
+    if(!user){
+        errorCode = 422
+        throw new Error("Usuário não encontrado");        
+    }
+
+    const users: user[] = await getAllUsers()
+    return users
+   
+}
+
+export const deleteUserBusiness = async (input:{token: string, id: string}) =>{
+    let errorCode = 400;
+    const tokenData: authenticationData = getTokenData(input.token)
+
+    if(tokenData.role !== "ADMIN"){
+        errorCode = 401;
+        throw new Error("Somente administradores podem deletar um usuário.");
+    }
+
+    await deleteUser(input.id)
+}
