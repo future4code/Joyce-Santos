@@ -3,6 +3,7 @@ import { insertUser, selectUserByEmail } from "../data/userDatabase";
 import { generateToken } from "./services/authenticator";
 import { generateId } from "./services/idGenerator";
 import { signupInputDTO, user} from "./entities/user";
+import { convertStringToUserRole } from "../data/model/userModel";
 
 export const businessSignup = async (
   input: signupInputDTO
@@ -28,7 +29,7 @@ export const businessSignup = async (
      nickname: input.nickname,
      email: input.email,
      password: cypherPassword,
-     role: input.role,
+     role: convertStringToUserRole(input.role)
    };
 
    await insertUser(user)
