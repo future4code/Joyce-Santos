@@ -11,3 +11,10 @@ export type Post = {
   createdAt: Date;
   authorId: string;
 };
+
+export type createTaskInputDTO = {
+  token: string;
+  photo: string;
+  description: string;
+  type: string;
+};

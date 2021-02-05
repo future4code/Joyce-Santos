@@ -1,16 +1,23 @@
 import { Request, Response } from "express"
+import { createTaskInputDTO } from "../business/entities/post";
 import { businessCreatePost, businessGetPostById } from "../business/postBusiness";
 
 export const createPost = async (req: Request, res: Response) => {
    try {  
 
+      let message = "Sucess!"
+
     const { photo, description, type } = req.body
 
     const token: string = req.headers.authorization as string;
 
-    const result = await businessCreatePost(photo, description, type, token)
+    const postData: createTaskInputDTO = {
+       token, photo, description, type
+    }
 
-    res.status(201).send(result)
+   await businessCreatePost(postData)
+
+    res.status(201).send({message})
 
    } catch (error) {
       let message = error.sqlMessage || error.message

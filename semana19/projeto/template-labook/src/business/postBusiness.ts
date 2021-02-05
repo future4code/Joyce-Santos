@@ -1,27 +1,28 @@
 import { response } from "express";
 import { insertPostData, searchPostById } from "../data/postDatabase";
-import { Post } from "./entities/post";
+import { createTaskInputDTO, Post } from "./entities/post";
 import { AuthenticationData } from "./entities/user";
 import { getTokenData } from "./services/authenticatos";
 import { generateId } from "./services/idGenerator";
 
 export const businessCreatePost = async(
-    photo: string,
-    description: string,
-    type: string,
-    token: string
-) => {
+    input: createTaskInputDTO
+): Promise<any> => {
 
-     let message = "Success!";
+  const tokenData: AuthenticationData = getTokenData(input.token);
+  const id: string = generateId();
+     
+       const newPost = {
+         id: id, 
+         photo: input.photo,
+         description: input.description,
+         type: input.type,
+         author_id: tokenData.id
+         
+       }
+       
+       await insertPostData(newPost);
 
-    const tokenData: AuthenticationData = getTokenData(token);
-    const id: string = generateId();
-
-    const result = await insertPostData(
-        id, photo, description, type, tokenData.id
-    )
-
-    return message
 }
 
 export const businessGetPostById = async (id: string)=>{
@@ -30,12 +31,11 @@ export const businessGetPostById = async (id: string)=>{
    const queryResult: any = await searchPostById(id);
 
    if (!queryResult[0]) {
-     response.statusCode = 404;
-     message = "Post not found";
+          message = "Post not found";
      throw new Error(message);
    }
 
-   const post: Post = {
+   const post: any = {
      id: queryResult[0].id,
      photo: queryResult[0].photo,
      description: queryResult[0].description,

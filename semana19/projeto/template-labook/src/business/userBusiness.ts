@@ -3,46 +3,43 @@ import { generateToken } from "./services/authenticatos";
 import { hash } from "./services/hashManager";
 import {generateId} from "./services/idGenerator"
 import {response} from "express"
-import { User } from "./entities/user";
+import { loginInputDTO, signupInputDTO, User } from "./entities/user";
 import { compare } from "bcryptjs";
 
 export const businessSignup = async (
-    name: string,
-    email: string,
-    password: string
+   input: signupInputDTO
 ) =>{
         let message = "Success!";
 
-        if (!name || !email || !password) {
+        if (!input.name || !input.email || !input.password) {
           response.statusCode = 406;
           message = '"name", "email" and "password" must be provided';
           throw new Error(message);
         }
         
         const id: string = generateId();
-        const cypherPassword = await hash(password);
+        const cypherPassword = await hash(input.password);
 
-        await insertUseData(id, name, email, cypherPassword);
+        await insertUseData(id, input.name, input.email, cypherPassword);
 
         const token: string = generateToken({ id });
 
-        return ({message, token})
+        return ({token})
 
 }
 
 export const businessLogin = async (
-  email: string,
-  password: string
+  input: loginInputDTO
 ) =>{
    let message = "Success!";
 
-  if (!email || !password) {
+  if (!input.email || !input.password) {
     response.statusCode = 406;
     message = '"email" and "password" must be provided';
     throw new Error(message);
   }
 
-  const queryResult: any = await selectUseryEmail(email)
+  const queryResult: any = await selectUseryEmail(input.email);
 
   if (!queryResult[0]) {
     response.statusCode = 401;
@@ -57,7 +54,10 @@ export const businessLogin = async (
     password: queryResult[0].password,
   };
 
-  const passwordIsCorrect: boolean = await compare(password, user.password);
+  const passwordIsCorrect: boolean = await compare(
+    input.password,
+    user.password
+  );
 
   if (!passwordIsCorrect) {
     response.statusCode = 401;

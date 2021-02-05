@@ -1,20 +1,11 @@
+import { Post } from "../business/entities/post";
 import {connection} from "./connection"
 
 export const insertPostData = async (
-    id: string,
-    photo: string,
-    description: string,
-    type: string,
-    author_id: string
-): Promise<void> =>{
+   post: any
+) =>{
     await connection("labook_posts")
-         .insert({
-            id,
-            photo,
-            description,
-            type,
-            author_id
-         })
+         .insert(post)
 }
 
 export const searchPostById = async(id: string) =>{
