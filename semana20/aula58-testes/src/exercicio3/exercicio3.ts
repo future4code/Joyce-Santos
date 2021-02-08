@@ -1,3 +1,12 @@
+import {
+  NACIONALITY,
+  LOCATION,
+  User,
+  Casino,
+  Result,
+  ResultItem
+} from "../exercicio3/entities";
+
 export function verifyAge(casino: Casino, users: User[]): Result {
   const allowed: User[] = [];
   const unallowed: User[] = [];
@@ -19,22 +28,23 @@ export function verifyAge(casino: Casino, users: User[]): Result {
     }
   }
 
-  return {
-    brazilians: {
-      allowed: allowed
-        .filter((user) => user.nacionality === NACIONALITY.BRAZILIAN)
-        .map((u) => u.name),
-      unallowed: unallowed
-        .filter((user) => user.nacionality === NACIONALITY.BRAZILIAN)
-        .map((u) => u.name),
-    },
-    americans: {
-      allowed: allowed
-        .filter((user) => user.nacionality === NACIONALITY.AMERICAN)
-        .map((u) => u.name),
-      unallowed: unallowed
-        .filter((user) => user.nacionality === NACIONALITY.AMERICAN)
-        .map((u) => u.name),
-    },
-  };
-}
+     const brazilians: ResultItem = {
+        allowed: allowed
+            .filter((user) => user.nacionality === NACIONALITY.BRAZILIAN)
+            .map((user) => user.name),
+        unallowed: unallowed
+            .filter((user) => user.nacionality === NACIONALITY.BRAZILIAN)
+            .map((user) => user.name)
+    };
+
+    const americans: ResultItem = {
+        allowed: allowed
+            .filter((user) => user.nacionality === NACIONALITY.AMERICAN)
+            .map((user) => user.name),
+        unallowed: unallowed
+            .filter((user) => user.nacionality === NACIONALITY.AMERICAN)
+            .map((user) => user.name)
+    };
+
+    return { brazilians, americans };
+}; 
